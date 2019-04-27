@@ -69,6 +69,18 @@
                     </a-form-item>
                   </div>
 
+                  <!-- TODO: 在注册类型为加工所时才展示，注意动态校验的逻辑 -->
+                  <div class="col-12 col-lg-12 col-md-12 col-lg-12">
+                    <a-form-item class="form-group">
+                      <label class="control-label">注册证号</label>
+                      <a-input
+                        class="form-control"
+                        placeholder="注册证号"
+                        v-decorator="['certificate_no', {rules: [{ required: true, message: '请输入注册证号' }], validateTrigger: ['change', 'blur']}]"
+                      ></a-input>
+                    </a-form-item>
+                  </div>
+
                   <div class="col-12 col-lg-12 col-md-12 col-lg-12">
                     <a-form-item class="form-group">
                       <label class="control-label">手机号码</label>
@@ -76,17 +88,6 @@
                         class="form-control"
                         placeholder="手机号码"
                         v-decorator="['telephone', {rules: [{ required: true, message: '请输入手机号码' }], validateTrigger: ['change', 'blur']}]"
-                      ></a-input>
-                    </a-form-item>
-                  </div>
-
-                  <div class="col-12 col-lg-12 col-md-12 col-lg-12">
-                    <a-form-item class="form-group">
-                      <label class="control-label">短信验证码</label>
-                      <a-input
-                        class="form-control"
-                        placeholder="短信验证码"
-                        v-decorator="['certificate_no', {rules: [{ required: true, message: '短信验证码' }], validateTrigger: ['change', 'blur']}]"
                       ></a-input>
                     </a-form-item>
                   </div>
@@ -190,12 +191,12 @@ export default {
     },
     redirect(type) {
       // 注册类型是消费者，跳转到消费者查询列表
-      if (+type === 1) {
+      if (+type === 2) {
         this.$router.push({ name: 'TableListWrapper' })
         return
       }
       // 注册类型是加工所，跳转到加工所查询列表
-      if (+type === 2) {
+      if (+type === 1) {
         this.$router.push({ name: 'TableListWrapper' })
       }
     }

@@ -89,7 +89,7 @@ import { getRoleList, getServiceList } from '@/api/manage'
 import API from 'src/api'
 
 export default {
-  name: 'TableList',
+  name: 'CustomerTableList',
   components: {
     STable,
     CreateForm,

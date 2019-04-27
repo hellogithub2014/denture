@@ -133,7 +133,7 @@ export default {
       })
     },
     addProduct(formData) {
-      this.axios.post(API.addProduct, formData).then(resp => {
+      this.axios.post(API.product, formData).then(resp => {
         // 跳转到加工所查询列表
         this.$router.push({ name: 'TableListWrapper' })
       })
