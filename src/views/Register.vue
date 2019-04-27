@@ -1,378 +1,16 @@
 <template>
   <div>
-    <div id="loader-wrapper">
-      <div id="loader"></div>
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
-    </div>
-    <header class="header_inner_pages">
-      <div class="header-top">
-        <div class="sassnex_nav">
-          <div class="container">
-            <nav class="navbar navbar-expand-md navbar-light bg-faded">
-              <a class="navbar-brand" href="index.html">
-                <img src="../assets/images/logo1.png" alt="logo">
-              </a>
-              <div class="collapse navbar-collapse mean_menu" id="navbarSupportedContent">
-                <ul class="navbar-nav nav ml-auto">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">Home</a>
-                    <ul class="dropdown_menu">
-                      <li>
-                        <a href="index.html">App Landing</a>
-                      </li>
-                      <li>
-                        <a href="product-landing.html">Product Landing</a>
-                      </li>
-                      <li>
-                        <a href="startup-agency.html">Startup Agency</a>
-                      </li>
-                      <li>
-                        <a href="payment-page.html">Payment Processing</a>
-                      </li>
-                      <li>
-                        <a href="marketing.html">Digital Marketing</a>
-                      </li>
-                      <li>
-                        <a href="sass-landing.html">Sass Landing</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link active">Pages</a>
-                    <ul class="dropdown_menu">
-                      <li>
-                        <a href="index.html">Home Pages</a>
-                        <ul class="dropdown_menu">
-                          <li>
-                            <a href="index.html">App Landing</a>
-                          </li>
-                          <li>
-                            <a href="product-landing.html">Product Landing</a>
-                          </li>
-                          <li>
-                            <a href="startup-agency.html">Startup Agency</a>
-                          </li>
-                          <li>
-                            <a href="payment-page.html">Payment Processing</a>
-                          </li>
-                          <li>
-                            <a href="marketing.html">Digital Marketing</a>
-                          </li>
-                          <li>
-                            <a href="sass-landing.html">Sass Landing</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#" class="nav-link">Blog</a>
-                        <ul class="dropdown_menu">
-                          <li>
-                            <a href="blog.html">Blog</a>
-                          </li>
-                          <li>
-                            <a href="blog-details.html">Blog Details</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#" class="nav-link">Shop</a>
-                        <ul class="dropdown_menu">
-                          <li>
-                            <a href="shop-page.html">Shop Page</a>
-                          </li>
-                          <li>
-                            <a href="shop-details.html">Shop Details</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="about.html">About Us</a>
-                      </li>
-                      <li>
-                        <a href="team.html">Team Page</a>
-                      </li>
-                      <li>
-                        <a href="pricing-table.html">Pricing table Page</a>
-                      </li>
-                      <li>
-                        <a href="sign-in.html">Sign In</a>
-                      </li>
-                      <li>
-                        <a href="sign-up.html" class="active">Sign Up</a>
-                      </li>
-                      <li>
-                        <a href="portfolio.html">Portfolio</a>
-                      </li>
-                      <li>
-                        <a href="contact.html">Contact</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a href="portfolio.html" class="nav-link">Portfolio</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">Blog</a>
-                    <ul class="dropdown_menu">
-                      <li>
-                        <a href="blog.html">Blog</a>
-                      </li>
-                      <li>
-                        <a href="blog-details.html">Blog Details</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">Shop</a>
-                    <ul class="dropdown_menu">
-                      <li>
-                        <a href="shop-page.html">Shop Page</a>
-                      </li>
-                      <li>
-                        <a href="shop-details.html">Shop Details</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="mr-auto others_option">
-                <ul class="navbar-nav mx-auto d-flex">
-                  <li class="nav-item cart_wrapper">
-                    <i class="flaticon-shopping-cart cart_icon"></i>
-                    <ul class="cart_list">
-                      <li class="d-flex justify-content-between">
-                        <div class="cart-img">
-                          <a href="#">
-                            <img
-                              alt
-                              src="../assets/images/products/product_1.png"
-                              class="img-fluid"
-                            >
-                          </a>
-                        </div>
-                        <div class="cart-info">
-                          <h4>
-                            <a href="#">Vestibulum suscipit</a>
-                          </h4>
-                          <span>
-                            $165.00
-                            <span>x 1</span>
-                          </span>
-                        </div>
-                        <div class="del-icon">
-                          <i class="flaticon-close"></i>
-                        </div>
-                      </li>
-                      <li class="d-flex justify-content-between">
-                        <div class="cart-img">
-                          <a href="#">
-                            <img
-                              alt
-                              src="../assets/images/products/product_2.png"
-                              class="img-fluid"
-                            >
-                          </a>
-                        </div>
-                        <div class="cart-info">
-                          <h4>
-                            <a href="#">Vestibulum suscipit</a>
-                          </h4>
-                          <span>
-                            $165.00
-                            <span>x 1</span>
-                          </span>
-                        </div>
-                        <div class="del-icon">
-                          <i class="flaticon-close"></i>
-                        </div>
-                      </li>
-                      <li class="cart-border">
-                        <div class="subtotal-text">Subtotal:</div>
-                        <div class="subtotal-price">$300.00</div>
-                      </li>
-                      <li class="d-flex justify-content-between">
-                        <a class="cart-button" href="#">view cart</a>
-                        <a class="checkout" href="#">checkout</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="header-search-box btn-color-dark">
-                    <a href="#header-search" title="Search">
-                      <i class="flaticon-search search_btn"></i>
-                    </a>
-                  </li>
-                  <li
-                    class="nav-item sign-in-option btn-demo"
-                    data-toggle="modal"
-                    data-target="#myModal2"
-                  >
-                    <div class="side_menu">
-                      <span class="line_1"></span>
-                      <span class="line_2"></span>
-                      <span class="line_3"></span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-            <!-- END NAVBAR -->
-          </div>
-        </div>
-      </div>
+    <!-- loading加载 -->
+    <loader-wrapper></loader-wrapper>
 
-      <div class="intro_wrapper">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-              <div class="intro_text">
-                <h1 class="wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s">SignUp Page</h1>
-                <div class="select_pages">
-                  <a href title>Home</a>
-                  <span>SignUp Page</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="banner_shapes">
-        <img src="../assets/images/shapes/app_1.png" alt class="agency_1 img-fluid">
-        <img src="../assets/images/shapes/app_4.png" alt class="agency_2">
-        <img src="../assets/images/shapes/app_4.png" alt class="agency_6">
-        <img src="../assets/images/shapes/app_3.png" alt class="agency_3">
-      </div>
-    </header>
-    <!-- End Header -->
+    <!-- 顶部导航栏 -->
+    <top-nav-menu></top-nav-menu>
 
     <!-- Search Box Start Here -->
-    <div id="header-search" class="header-search">
-      <button type="button" class="close">×</button>
-      <form class="header-search-form">
-        <input type="search" value placeholder="Type here........">
-        <button type="submit" class="search-btn">Search</button>
-      </form>
-    </div>
+    <header-search></header-search>
 
-    <!-- Sidebar Menu -->
-    <section class="sidebar_menu">
-      <!-- Modal -->
-      <div
-        class="modal right fade"
-        id="myModal2"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="myModalLabel2"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">
-                  <i class="flaticon-close"></i>
-                </span>
-              </button>
-              <h2 class="modal-title" id="myModalLabel2">
-                <a href="#">
-                  <img src="../assets/images/logo.png" alt>
-                </a>
-                <span class="disabled">logo</span>
-              </h2>
-            </div>
-            <div class="modal-body">
-              <div class="bar-nav">
-                <div class="bar-top">
-                  <h2>Sassnex Pages</h2>
-                  <ul>
-                    <li>
-                      <a href="index.html">App Landing</a>
-                    </li>
-                    <li>
-                      <a href="product-landing.html">Product Landing</a>
-                    </li>
-                    <li>
-                      <a href="startup-agency.html">Startup Agency</a>
-                    </li>
-                    <li>
-                      <a href="payment-page.html">Payment Processing</a>
-                    </li>
-                    <li>
-                      <a href="marketing.html">Digital Marketing</a>
-                    </li>
-                    <li>
-                      <a href="sass-landing.html">Sass Landing</a>
-                    </li>
-                    <li>
-                      <a href="about.html">About Us</a>
-                    </li>
-                    <li>
-                      <a href="pricing-table.html">Pricing table Page</a>
-                    </li>
-                    <li>
-                      <a href="shop-page.html">Shop Page</a>
-                    </li>
-                    <li>
-                      <a href="blog.html">Blog</a>
-                    </li>
-                    <li>
-                      <a href="sign-in.html">Sign In</a>
-                    </li>
-                    <li>
-                      <a href="contact.html">Contact</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="bar-contact">
-                <span>Contact</span>
-                <span>+44 7700 900077</span>
-                <span>support@sassnex.com</span>
-              </div>
-
-              <div class="bar-icon">
-                <div class="serach_option widget_single">
-                  <form>
-                    <input type="text" name="Name" class="input-c" placeholder="Name">
-                    <button type="submit">
-                      <i class="flaticon-paper-plane"></i>
-                    </button>
-                  </form>
-                </div>
-                <ul class="social_iocns d-flex">
-                  <li>
-                    <a href="#">
-                      <i class="flaticon-facebook-logo icon_tw"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="flaticon-twitter icon_fb"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="flaticon-instagram-logo icon_pin"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="flaticon-linkedin-logo icon_link"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- modal-content -->
-        </div>
-        <!-- modal-dialog -->
-      </div>
-      <!-- modal -->
-    </section>
-    <!-- sidebar -->
+    <!-- 侧边工具栏 -->
+    <side-bar-menu></side-bar-menu>
 
     <!-- Sign In Form -->
     <section class="sign_in">
@@ -387,25 +25,82 @@
                   <br>seed round iteration startup growth hacking project.
                 </p>
               </div>
-              <form action="#">
+              <a-form :form="form" @submit="handleSubmit">
                 <div class="row">
                   <div class="col-12 col-lg-12 col-md-12 col-lg-12">
-                    <div class="form-group">
+                    <a-form-item class="form-group">
                       <label class="control-label">Name</label>
-                      <input type="text" class="form-control" placeholder="Username">
-                    </div>
+                      <a-input
+                        type="text"
+                        class="form-control"
+                        placeholder="Username"
+                        v-decorator="['name', {rules: [{ required: true, message: '请输入用户名' }], validateTrigger: ['change', 'blur']}]"
+                      ></a-input>
+                    </a-form-item>
                   </div>
                   <div class="col-12 col-lg-12 col-md-12 col-lg-12">
-                    <div class="form-group">
-                      <label class="control-label">Email</label>
-                      <input type="email" class="form-control" placeholder="Email">
-                    </div>
+                    <a-form-item class="form-group">
+                      <label class="control-label">User Name</label>
+                      <a-input
+                        class="form-control"
+                        placeholder="User Name"
+                        v-decorator="['username', {rules: [{ required: true, message: '请输入User Name' }], validateTrigger: ['change', 'blur']}]"
+                      ></a-input>
+                    </a-form-item>
                   </div>
                   <div class="col-12 col-lg-12 col-md-12 col-lg-12">
-                    <div class="form-group">
+                    <a-form-item class="form-group">
                       <label class="control-label">Password</label>
-                      <input type="password" class="form-control" placeholder="Password">
-                    </div>
+                      <a-input
+                        type="password"
+                        class="form-control"
+                        placeholder="Password"
+                        v-decorator="['password', {rules: [{ required: true, message: '请输入密码' }], validateTrigger: ['change', 'blur']}]"
+                      ></a-input>
+                    </a-form-item>
+                  </div>
+                  <div class="col-12 col-lg-12 col-md-12 col-lg-12">
+                    <a-form-item class="form-group">
+                      <label class="control-label">注册类型</label>
+                      <a-select style="width: 120px" v-decorator="['type', {initialValue: '1'}]">
+                        <a-select-option value="1">加工所</a-select-option>
+                        <a-select-option value="2">消费者</a-select-option>
+                      </a-select>
+                    </a-form-item>
+                  </div>
+
+                  <div class="col-12 col-lg-12 col-md-12 col-lg-12">
+                    <a-form-item class="form-group">
+                      <label class="control-label">手机号码</label>
+                      <a-input
+                        class="form-control"
+                        placeholder="手机号码"
+                        v-decorator="['telephone', {rules: [{ required: true, message: '请输入手机号码' }], validateTrigger: ['change', 'blur']}]"
+                      ></a-input>
+                    </a-form-item>
+                  </div>
+
+                  <div class="col-12 col-lg-12 col-md-12 col-lg-12">
+                    <a-form-item class="form-group">
+                      <label class="control-label">短信验证码</label>
+                      <a-input
+                        class="form-control"
+                        placeholder="短信验证码"
+                        v-decorator="['certificate_no', {rules: [{ required: true, message: '短信验证码' }], validateTrigger: ['change', 'blur']}]"
+                      ></a-input>
+                    </a-form-item>
+                  </div>
+
+                  <div class="col-12 col-lg-12 col-md-12 col-lg-12">
+                    <a-form-item class="form-group">
+                      <label class="control-label">图片验证码</label>
+                      <a-input
+                        class="form-control"
+                        placeholder="验证码"
+                        v-decorator="['captcha', {rules: [{ required: true, message: '请输入验证码' }], validateTrigger: ['change', 'blur']}]"
+                      ></a-input>
+                      <img :src="captureUrl">
+                    </a-form-item>
                   </div>
                 </div>
                 <div class="row">
@@ -429,7 +124,7 @@
                     </div>
                   </div>
                 </div>
-              </form>
+              </a-form>
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-7">
@@ -442,144 +137,70 @@
     </section>
     <!-- End Sing In  -->
 
-    <!-- Footer Inner -->
-    <footer id="footer_app">
-      <div class="container">
-        <div class="footer_top footer_top_u">
-          <div class="row">
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="footer-title">
-                <img src="../assets/images/logo.png" alt class="f_logo">
-                <p>Ante amet vitae vulputate odio nulla vel pretium pulvinar aenean. Rhoncus eget adipiscing etiam arcu. Ultricies justo ipsum nec amet.</p>
-                <ul class="social_iocns d-flex">
-                  <li>
-                    <a href="#" class="active">
-                      <i class="flaticon-facebook-logo icon_tw"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="flaticon-twitter icon_fb"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="flaticon-instagram-logo icon_pin"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="flaticon-linkedin-logo icon_link"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3">
-              <div class="company-content">
-                <h3>Contact Info</h3>
-                <ul class="location_info">
-                  <li>
-                    <i class="flaticon-placeholder"></i>113 Sassnex, White House
-                  </li>
-                  <li>
-                    <i class="flaticon-push-pin"></i>New Jercy, USA
-                  </li>
-                  <li>
-                    <i class="flaticon-envelope"></i>Sassnex@gmail.com
-                  </li>
-                  <li>
-                    <i class="flaticon-phone-call"></i>+00 985 260
-                  </li>
-                  <li>
-                    <i class="flaticon-global"></i>
-                    <a href title>www.sassnex.com</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3">
-              <div class="company-content about_footer">
-                <h3>About us</h3>
-                <ul>
-                  <li>
-                    <a href="#">Leadereship</a>
-                  </li>
-                  <li>
-                    <a href="#">Company</a>
-                  </li>
-                  <li>
-                    <a href="#">Diversity</a>
-                  </li>
-                  <li>
-                    <a href="#">Jobs</a>
-                  </li>
-                  <li>
-                    <a href="#">Press</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-2">
-              <div class="company-content">
-                <h3>Team Solutions</h3>
-                <ul>
-                  <li>
-                    <a href="#">Imperdiet</a>
-                  </li>
-                  <li>
-                    <a href="#">Partueient</a>
-                  </li>
-                  <li>
-                    <a href="#">Faucibus</a>
-                  </li>
-                  <li>
-                    <a href="#">Ultricies</a>
-                  </li>
-                  <li>
-                    <a href="#">Vitae vel</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer_bottom">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <p>Copyright &copy; Ecologytheme 2019. All rights reserved.</p>
-            </div>
-            <div class="col-md-6">
-              <ul class="copy_right_items d-flex justify-content-end">
-                <li>
-                  <a href="#">Terms & Use</a>
-                </li>
-                <li>
-                  <a href="#">Privacy Policy</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- End Footer -->
+    <!-- 通用页面footer -->
+    <common-footer></common-footer>
 
-    <section id="scroll-top" class="scroll-top">
-      <h2 class="disabled">Scroll to top</h2>
-      <div class="to-top pos-rtive">
-        <a href="#">
-          <i class="flaticon-right-arrow"></i>
-        </a>
-      </div>
-    </section>
+    <!-- 滚动到顶部 -->
+    <scroll-top-icon></scroll-top-icon>
   </div>
 </template>
 
 <script>
-export default {}
+import API from 'src/api'
+import commonPageMixin from 'src/mixins/commonPageMixin'
+
+export default {
+  mixins: [commonPageMixin],
+  data() {
+    return {
+      form: this.$form.createForm(this),
+      captureUrl: ''
+    }
+  },
+  created() {
+    this.getCapture()
+  },
+  mounted() {
+    new WOW().init()
+  },
+  methods: {
+    getCapture() {
+      this.axios
+        .get(API.getCapture, {
+          params: {
+            rand: Math.random()
+          }
+        })
+        .then(resp => {
+          this.captureUrl = resp
+        })
+    },
+    handleSubmit(e) {
+      e.preventDefault()
+      this.form.validateFields((err, values) => {
+        if (!err) {
+          this.registe(values)
+        }
+      })
+    },
+    registe(formData) {
+      this.axios.post(API.Register, formData).then(resp => {
+        this.redirect(formData.type)
+      })
+    },
+    redirect(type) {
+      // 注册类型是消费者，跳转到消费者查询列表
+      if (+type === 1) {
+        this.$router.push({ name: 'TableListWrapper' })
+        return
+      }
+      // 注册类型是加工所，跳转到加工所查询列表
+      if (+type === 2) {
+        this.$router.push({ name: 'TableListWrapper' })
+      }
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
