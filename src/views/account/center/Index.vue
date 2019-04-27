@@ -78,19 +78,7 @@
           </div>
         </a-card>
       </a-col>
-      <a-col :md="24" :lg="17">
-        <a-card
-          style="width:100%"
-          :bordered="false"
-          :tabList="tabListNoTitle"
-          :activeTabKey="noTitleKey"
-          @tabChange="key => handleTabChange(key, 'noTitleKey')"
-        >
-          <article-page v-if="noTitleKey === 'article'"></article-page>
-          <app-page v-else-if="noTitleKey === 'app'"></app-page>
-          <project-page v-else-if="noTitleKey === 'project'"></project-page>
-        </a-card>
-      </a-col>
+      <a-col :md="24" :lg="17">{{ userInfo }}</a-col>
     </a-row>
   </div>
 </template>
@@ -100,6 +88,7 @@ import { PageView, RouteView } from '@/layouts'
 import { AppPage, ArticlePage, ProjectPage } from './page'
 
 import { mapGetters } from 'vuex'
+import API from 'src/api'
 
 export default {
   components: {
@@ -109,7 +98,7 @@ export default {
     ArticlePage,
     ProjectPage
   },
-  data () {
+  data() {
     return {
       tags: ['很有想法的', '专注设计', '辣~', '大长腿', '川妹子', '海纳百川'],
 
@@ -119,57 +108,53 @@ export default {
       teams: [],
       teamSpinning: true,
 
-      tabListNoTitle: [
-        {
-          key: 'article',
-          tab: '文章(8)'
-        },
-        {
-          key: 'app',
-          tab: '应用(8)'
-        },
-        {
-          key: 'project',
-          tab: '项目(8)'
-        }
-      ],
-      noTitleKey: 'app'
+      noTitleKey: 'app',
+      userInfo: {}
     }
   },
-  mounted () {
+  created() {
+    this.getUserinfo()
+  },
+  mounted() {
     this.getTeams()
   },
   methods: {
     ...mapGetters(['nickname', 'avatar']),
 
-    getTeams () {
+    getUserinfo() {
+      return this.axios.get(API.userinfo).then(resp => {
+        this.userInfo = resp.rows[0]
+      })
+    },
+
+    getTeams() {
       this.$http.get('/workplace/teams').then(res => {
         this.teams = res.result
         this.teamSpinning = false
       })
     },
 
-    handleTabChange (key, type) {
+    handleTabChange(key, type) {
       this[type] = key
     },
 
-    handleTagClose (removeTag) {
+    handleTagClose(removeTag) {
       const tags = this.tags.filter(tag => tag !== removeTag)
       this.tags = tags
     },
 
-    showTagInput () {
+    showTagInput() {
       this.tagInputVisible = true
       this.$nextTick(() => {
         this.$refs.tagInput.focus()
       })
     },
 
-    handleInputChange (e) {
+    handleInputChange(e) {
       this.tagInputValue = e.target.value
     },
 
-    handleTagInputConfirm () {
+    handleTagInputConfirm() {
       const inputValue = this.tagInputValue
       let tags = this.tags
       if (inputValue && !tags.includes(inputValue)) {

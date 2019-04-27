@@ -192,7 +192,7 @@ export default {
     redirect(type) {
       // 注册类型是消费者，跳转到消费者查询列表
       if (+type === 2) {
-        this.$router.push({ name: 'TableListWrapper' })
+        this.$router.push({ name: 'CustomerTableList' })
         return
       }
       // 注册类型是加工所，跳转到加工所查询列表
