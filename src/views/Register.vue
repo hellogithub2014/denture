@@ -12,7 +12,7 @@
     <!-- 侧边工具栏 -->
     <side-bar-menu></side-bar-menu>
 
-    <!-- Sign In Form -->
+    <!-- 注册 Form -->
     <section class="sign_in">
       <div class="container">
         <div class="row">
