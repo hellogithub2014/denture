@@ -109,22 +109,13 @@ export default {
   mixins: [commonPageMixin],
   data() {
     return {
-      form: this.$form.createForm(this),
-      rand: Math.random()
-    }
-  },
-  computed: {
-    captureUrl() {
-      return `${API.getCapture}?rand=${this.rand}`
+      form: this.$form.createForm(this)
     }
   },
   mounted() {
     new WOW().init()
   },
   methods: {
-    getCapture() {
-      this.rand = Math.random()
-    },
     handleSubmit(e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
@@ -136,19 +127,8 @@ export default {
     login(formData) {
       this.axios.post(API.Login, formData).then(resp => {
         // 登录接口需要返回用户类型
-        this.redirect(resp.type)
+        this.redirect(resp.userinfo)
       })
-    },
-    redirect(type) {
-      // 注册类型是消费者，跳转到消费者查询列表
-      if (+type === 1) {
-        this.$router.push({ name: 'TableListWrapper' })
-        return
-      }
-      // 注册类型是加工所，跳转到加工所查询列表
-      if (+type === 2) {
-        this.$router.push({ name: 'TableListWrapper' })
-      }
     }
   }
 }

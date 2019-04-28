@@ -55,22 +55,45 @@
                         type="password"
                         class="form-control"
                         placeholder="Password"
-                        v-decorator="['password', {rules: [{ required: true, message: '请输入密码' }], validateTrigger: ['change', 'blur']}]"
+                        v-decorator="['password', {rules: [
+                          { required: true, message: '请输入密码' },
+                          { validator: validateToNextPassword }
+                        ], validateTrigger: ['change', 'blur']}]"
+                      ></a-input>
+                    </a-form-item>
+                  </div>
+                  <div class="col-12 col-lg-12 col-md-12 col-lg-12">
+                    <a-form-item class="form-group">
+                      <label class="control-label">确认密码</label>
+                      <a-input
+                        type="password"
+                        class="form-control"
+                        placeholder="Password"
+                        v-decorator="['confirm', {
+                          rules: [
+                            { required: true, message: '请再次输入密码' },
+                            { validator: compareToFirstPassword }
+                          ],
+                        }]"
+                        @blur="handleConfirmBlur"
                       ></a-input>
                     </a-form-item>
                   </div>
                   <div class="col-12 col-lg-12 col-md-12 col-lg-12">
                     <a-form-item class="form-group">
                       <label class="control-label">注册类型</label>
-                      <a-select style="width: 120px" v-decorator="['type', {initialValue: '1'}]">
-                        <a-select-option value="1">加工所</a-select-option>
-                        <a-select-option value="2">消费者</a-select-option>
+                      <a-select
+                        style="width: 120px"
+                        v-decorator="['type', {initialValue: userType.customer}]"
+                      >
+                        <a-select-option :value="userType.institution">加工所</a-select-option>
+                        <a-select-option :value="userType.customer">消费者</a-select-option>
                       </a-select>
                     </a-form-item>
                   </div>
 
                   <!-- TODO: 在注册类型为加工所时才展示，注意动态校验的逻辑 -->
-                  <div class="col-12 col-lg-12 col-md-12 col-lg-12">
+                  <div class="col-12 col-lg-12 col-md-12 col-lg-12" v-if="isSelectInstitution()">
                     <a-form-item class="form-group">
                       <label class="control-label">注册证号</label>
                       <a-input
@@ -149,35 +172,33 @@
 <script>
 import API from 'src/api'
 import commonPageMixin from 'src/mixins/commonPageMixin'
+import _ from 'lodash'
 
 export default {
   mixins: [commonPageMixin],
   data() {
     return {
       form: this.$form.createForm(this),
-      rand: Math.random()
+      confirmDirty: false
     }
-  },
-  computed: {
-    captureUrl() {
-      return `${API.getCapture}?rand=${this.rand}`
-    }
-  },
-  created() {
-    this.getCapture()
   },
   mounted() {
     new WOW().init()
   },
   methods: {
-    getCapture() {
-      this.rand = Math.random()
+    isSelectInstitution() {
+      return this.form.getFieldValue('type') === this.userType.institution
     },
     handleSubmit(e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
         if (!err) {
-          this.registe(values)
+          const cloned = _.cloneDeep(values)
+          delete cloned.confirm
+          if (!this.isSelectInstitution()) {
+            delete cloned.certificate_no
+          }
+          this.registe(cloned)
         }
       })
     },
@@ -185,20 +206,28 @@ export default {
       this.axios
         .post(API.Register, formData)
         .then(resp => {
-          this.redirect(formData.type)
+          this.redirect(resp.userinfo)
         })
         .finally(() => this.getCapture())
     },
-    redirect(type) {
-      // 注册类型是消费者，跳转到消费者查询列表
-      if (+type === 2) {
-        this.$router.push({ name: 'CustomerTableList' })
-        return
+    handleConfirmBlur(e) {
+      const value = e.target.value
+      this.confirmDirty = this.confirmDirty || !!value
+    },
+    compareToFirstPassword(rule, value, callback) {
+      const form = this.form
+      if (value && value !== form.getFieldValue('password')) {
+        callback('两次密码不一致')
+      } else {
+        callback()
       }
-      // 注册类型是加工所，跳转到加工所查询列表
-      if (+type === 1) {
-        this.$router.push({ name: 'TableListWrapper' })
+    },
+    validateToNextPassword(rule, value, callback) {
+      const form = this.form
+      if (value && this.confirmDirty) {
+        form.validateFields(['confirm'], { force: true })
       }
+      callback()
     }
   }
 }
