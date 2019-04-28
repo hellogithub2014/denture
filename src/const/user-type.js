@@ -74,14 +74,6 @@ export const roleId = {
         dataAccess: null
       },
       {
-        permissionId: 'table',
-        permissionName: '表格权限',
-        actions,
-        actionEntitySet,
-        actionList: null,
-        dataAccess: null
-      },
-      {
         permissionId: 'order',
         permissionName: '订单管理',
         actions,
@@ -272,14 +264,6 @@ export const roleId = {
       {
         permissionId: 'user-table',
         permissionName: '用户列表查询权限',
-        actions,
-        actionEntitySet,
-        actionList: null,
-        dataAccess: null
-      },
-      {
-        permissionId: 'form',
-        permissionName: '表单权限',
         actions,
         actionEntitySet,
         actionList: null,
