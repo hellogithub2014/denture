@@ -85,7 +85,7 @@ import moment from 'moment'
 import { STable } from '@/components'
 import StepByStepModal from './modules/StepByStepModal'
 import CreateForm from './modules/CreateForm'
-import { getRoleList, getServiceList } from '@/api/manage'
+import { getRoleList } from '@/api/manage'
 import API from 'src/api'
 
 export default {
@@ -104,10 +104,6 @@ export default {
       queryParam: {},
       // 表头
       columns: [
-        {
-          title: '#',
-          scopedSlots: { customRender: 'serial' }
-        },
         {
           title: 'ID',
           dataIndex: 'id'
@@ -155,13 +151,6 @@ export default {
       ],
       // 加载数据方法 必须为 Promise 对象
       loadData: parameter => this.getProductList(Object.assign(parameter, this.queryParam)),
-      // 加载数据方法 必须为 Promise 对象
-      // loadData: parameter => {
-      //   console.log('loadData.parameter', parameter)
-      //   return getServiceList(Object.assign(parameter, this.queryParam)).then(res => {
-      //     return res.result
-      //   })
-      // },
       selectedRowKeys: [],
       selectedRows: [],
 
@@ -179,14 +168,6 @@ export default {
         }
       },
       optionAlertShow: false
-    }
-  },
-  filters: {
-    statusFilter(type) {
-      return statusMap[type].text
-    },
-    statusTypeFilter(type) {
-      return statusMap[type].status
     }
   },
   created() {

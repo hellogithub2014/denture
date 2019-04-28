@@ -12,7 +12,8 @@ const api = {
   UserInfo: '/api/user/info',
   getCapture: `${prefix}/sm/code`,
   product: `${prefix}/rs/product`,
-  userinfo: `${prefix}/rs/userinfo`
+  userinfo: `${prefix}/rs/userinfo`,
+  memberList: `${prefix}/rs/member`
 }
 
 export default api

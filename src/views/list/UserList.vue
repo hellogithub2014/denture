@@ -85,7 +85,7 @@ import moment from 'moment'
 import { STable } from '@/components'
 import StepByStepModal from './modules/StepByStepModal'
 import CreateForm from './modules/CreateForm'
-import { getRoleList, getServiceList } from '@/api/manage'
+import { getRoleList } from '@/api/manage'
 import API from 'src/api'
 
 export default {
@@ -109,48 +109,36 @@ export default {
           dataIndex: 'id'
         },
         {
-          title: '用户ID',
-          dataIndex: 'user_id'
-        },
-        {
-          title: '材料ID',
-          dataIndex: 'stuff_id'
-        },
-        {
-          title: '义齿ID',
-          dataIndex: 'product_id'
-        },
-        {
-          title: '用户名称',
+          title: '账户',
           dataIndex: 'username'
         },
         {
-          title: '材料名称',
+          title: '名称',
           dataIndex: 'name'
         },
         {
-          title: '注册证号',
-          dataIndex: 'certificate_no'
+          title: '账户类型',
+          dataIndex: 'type'
         },
         {
-          title: '生产批号',
-          dataIndex: 'produce_no'
-        },
-        {
-          title: '操作员',
-          dataIndex: 'operator'
-        },
-        {
-          title: '备注',
-          dataIndex: 'remark'
+          title: 'rank',
+          dataIndex: 'rank' // TODO: type和rank差别
         },
         {
           title: '创建时间',
           dataIndex: 'create_time'
+        },
+        {
+          title: '电话',
+          dataIndex: 'telephone'
+        },
+        {
+          title: '注册证号',
+          dataIndex: 'certificate_no'
         }
       ],
       // 加载数据方法 必须为 Promise 对象
-      loadData: parameter => this.getProductList(Object.assign(parameter, this.queryParam)),
+      loadData: parameter => this.getMemberList(Object.assign(parameter, this.queryParam)),
       selectedRowKeys: [],
       selectedRows: [],
 
@@ -175,9 +163,9 @@ export default {
     getRoleList({ t: new Date() })
   },
   methods: {
-    getProductList(params) {
+    getMemberList(params) {
       return this.axios
-        .get(API.product, {
+        .get(API.memberList, {
           params: {
             page: params.pageNo,
             size: params.pageSize

@@ -91,6 +91,13 @@ export const asyncRouterMap = [
             meta: { title: '消费者查询表格', keepAlive: true, permission: ['table'] }
           },
           {
+            path: '/list/customer-table-list',
+            name: 'UserTableList',
+            hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
+            component: () => import('@/views/list/UserList'),
+            meta: { title: '用户列表', keepAlive: true, permission: ['table'] }
+          },
+          {
             path: '/list/basic-list',
             name: 'BasicList',
             component: () => import('@/views/list/StandardList'),
