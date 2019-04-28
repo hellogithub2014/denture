@@ -10,7 +10,19 @@
 
 <script>
 export default {
-  name: 'header-search'
+  name: 'header-search',
+  mounted() {
+    $('a[href="#header-search"]').on('click', function(event) {
+      event.preventDefault()
+      $('#header-search').addClass('open')
+      $('#header-search > form > input[type="search"]').focus()
+    })
+    $('#header-search, #header-search button.close').on('click keyup', function(event) {
+      if (event.target === this || event.target.className === 'close' || event.keyCode === 27) {
+        $(this).removeClass('open')
+      }
+    })
+  }
 }
 </script>
 

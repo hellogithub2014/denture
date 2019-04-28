@@ -19,7 +19,7 @@
           <div class="col-12 col-md-6 col-lg-5">
             <div class="sign_in_form">
               <div class="form_title">
-                <h2>Log In</h2>
+                <h2>Sign Up</h2>
                 <p>
                   Crowdfunding influencer holy grail analytics accelerator
                   <br>seed round iteration startup growth hacking project.

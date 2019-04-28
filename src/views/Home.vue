@@ -1,396 +1,18 @@
 <template>
   <div>
-    <div id="loader-wrapper">
-      <div id="loader"></div>
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
-    </div>
-    <header id="payment" class>
-      <div class="header-top">
-        <div class="sassnex_nav">
-          <div class="container">
-            <nav class="navbar navbar-expand-md navbar-light bg-faded">
-              <a class="navbar-brand" href="index.html">
-                <img src="../assets/images/logo1.png" alt="logo">
-              </a>
-              <div class="collapse navbar-collapse mean_menu" id="navbarSupportedContent">
-                <ul class="navbar-nav nav ml-auto">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link active">Home</a>
-                    <ul class="dropdown_menu">
-                      <li>
-                        <a href="index.html">App Landing</a>
-                      </li>
-                      <li>
-                        <a href="product-landing.html">Product Landing</a>
-                      </li>
-                      <li>
-                        <a href="startup-agency.html">Startup Agency</a>
-                      </li>
-                      <li>
-                        <a href="payment-page.html" class="active">Payment Processing</a>
-                      </li>
-                      <li>
-                        <a href="marketing.html">Digital Marketing</a>
-                      </li>
-                      <li>
-                        <a href="sass-landing.html">Sass Landing</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">Pages</a>
-                    <ul class="dropdown_menu">
-                      <li>
-                        <a href="index.html" class="active">Home Pages</a>
-                        <ul class="dropdown_menu">
-                          <li>
-                            <a href="index.html">App Landing</a>
-                          </li>
-                          <li>
-                            <a href="product-landing.html">Product Landing</a>
-                          </li>
-                          <li>
-                            <a href="startup-agency.html">Startup Agency</a>
-                          </li>
-                          <li>
-                            <a href="payment-page.html" class="active">Payment Processing</a>
-                          </li>
-                          <li>
-                            <a href="marketing.html">Digital Marketing</a>
-                          </li>
-                          <li>
-                            <a href="sass-landing.html">Sass Landing</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#" class="nav-link">Blog</a>
-                        <ul class="dropdown_menu">
-                          <li>
-                            <a href="blog.html">Blog</a>
-                          </li>
-                          <li>
-                            <a href="blog-details.html">Blog Details</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#" class="nav-link">Shop</a>
-                        <ul class="dropdown_menu">
-                          <li>
-                            <a href="shop-page.html">Shop Page</a>
-                          </li>
-                          <li>
-                            <a href="shop-details.html">Shop Details</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="about.html">About Us</a>
-                      </li>
-                      <li>
-                        <a href="team.html">Team Page</a>
-                      </li>
-                      <li>
-                        <a href="pricing-table.html">Pricing table Page</a>
-                      </li>
-                      <li>
-                        <a href="sign-in.html">Sign In</a>
-                      </li>
-                      <li>
-                        <a href="sign-up.html">Sign Up</a>
-                      </li>
-                      <li>
-                        <a href="portfolio.html">Portfolio</a>
-                      </li>
-                      <li>
-                        <a href="contact.html">Contact</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a href="portfolio.html" class="nav-link">Portfolio</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">Blog</a>
-                    <ul class="dropdown_menu">
-                      <li>
-                        <a href="blog.html">Blog</a>
-                      </li>
-                      <li>
-                        <a href="blog-details.html">Blog Details</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">Shop</a>
-                    <ul class="dropdown_menu">
-                      <li>
-                        <a href="shop-page.html">Shop Page</a>
-                      </li>
-                      <li>
-                        <a href="shop-details.html">Shop Details</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="mr-auto others_option">
-                <ul class="navbar-nav mx-auto d-flex">
-                  <li class="nav-item cart_wrapper">
-                    <i class="flaticon-shopping-cart cart_icon"></i>
-                    <ul class="cart_list">
-                      <li class="d-flex justify-content-between">
-                        <div class="cart-img">
-                          <a href="#">
-                            <img alt src="../assets/images/products/product_1.png" class="img-fluid">
-                          </a>
-                        </div>
-                        <div class="cart-info">
-                          <h4>
-                            <a href="#">Vestibulum suscipit</a>
-                          </h4>
-                          <span>
-                            $165.00
-                            <span>x 1</span>
-                          </span>
-                        </div>
-                        <div class="del-icon">
-                          <i class="flaticon-close"></i>
-                        </div>
-                      </li>
-                      <li class="d-flex justify-content-between">
-                        <div class="cart-img">
-                          <a href="#">
-                            <img alt src="../assets/images/products/product_2.png" class="img-fluid">
-                          </a>
-                        </div>
-                        <div class="cart-info">
-                          <h4>
-                            <a href="#">Vestibulum suscipit</a>
-                          </h4>
-                          <span>
-                            $165.00
-                            <span>x 1</span>
-                          </span>
-                        </div>
-                        <div class="del-icon">
-                          <i class="flaticon-close"></i>
-                        </div>
-                      </li>
-                      <li class="cart-border">
-                        <div class="subtotal-text">Subtotal:</div>
-                        <div class="subtotal-price">$300.00</div>
-                      </li>
-                      <li class="d-flex justify-content-between">
-                        <a class="cart-button" href="#">view cart</a>
-                        <a class="checkout" href="#">checkout</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="header-search-box btn-color-dark">
-                    <a href="#header-search" title="Search">
-                      <i class="flaticon-search search_btn"></i>
-                    </a>
-                  </li>
-                  <li
-                    class="nav-item sign-in-option btn-demo"
-                    data-toggle="modal"
-                    data-target="#myModal2"
-                  >
-                    <div class="side_menu">
-                      <span class="line_1"></span>
-                      <span class="line_2"></span>
-                      <span class="line_3"></span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-            <!-- END NAVBAR -->
-          </div>
-        </div>
-      </div>
+    <!-- loading加载 -->
+    <loader-wrapper></loader-wrapper>
 
-      <div class="intro_wrapper">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-              <div class="intro_text">
-                <h1
-                  class="wow fadeInUp"
-                  data-wow-duration="2s"
-                  data-wow-delay=".2s"
-                >All in one solution for your legal payment</h1>
-                <p
-                  class="wow fadeInUp"
-                  data-wow-duration="2s"
-                  data-wow-delay=".3s"
-                >Ante amet vitae vulputate odio nulla vel pretium pulvinar aenean. Rhoncus eget adipiscing etiam arcu. Ultricies justo ipsum nec amet.</p>
-                <div
-                  class="intro_button d-flex justify-content-center wow fadeInUp"
-                  data-wow-duration="2s"
-                  data-wow-delay=".3s"
-                >
-                  <a href="#" class="nav-link active">Sign Up</a>
-                  <a href="#" class="nav-link">Find Out More</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
-              <div class="intro_banner wow fadeInUp" data-wow-duration="2s" data-wow-delay=".4s">
-                <img src="../assets/images/banner/payment.png" alt>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="banner_shapes">
-        <img src="../assets/images/shapes/payment.png" alt class="agency_1 img-fluid">
-        <img src="../assets/images/shapes/payment_1.png" alt class="agency_2">
-        <img src="../assets/images/shapes/app_3.png" alt class="agency_6">
-        <img src="../assets/images/shapes/payment_2.png" alt class="agency_3">
-        <img src="../assets/images/shapes/payment_2.png" alt class="agency_4">
-        <img src="../assets/images/shapes/payment_3.png" alt class="agency_5">
-        <img src="../assets/images/shapes/payment_round.png" alt class="agency_7">
-        <img src="../assets/images/shapes/payment_round.png" alt class="agency_77">
-        <img src="../assets/images/shapes/payment_t_3.png" alt class="agency_8">
-        <img src="../assets/images/shapes/payment_t_3.png" alt class="agency_9">
-      </div>
-    </header>
-    <!-- End Header -->
+    <!-- 顶部导航栏 -->
+    <top-nav-menu></top-nav-menu>
 
     <!-- Search Box Start Here -->
-    <div id="header-search" class="header-search">
-      <button type="button" class="close">×</button>
-      <form class="header-search-form">
-        <input type="search" value placeholder="Type here........">
-        <button type="submit" class="search-btn">Search</button>
-      </form>
-    </div>
+    <header-search></header-search>
 
-    <!-- Sidebar Menu -->
-    <section class="sidebar_menu">
-      <!-- Modal -->
-      <div
-        class="modal right fade"
-        id="myModal2"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="myModalLabel2"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">
-                  <i class="flaticon-close"></i>
-                </span>
-              </button>
-              <h2 class="modal-title" id="myModalLabel2">
-                <a href="#">
-                  <img src="../assets/images/logo.png" alt>
-                </a>
-                <span class="disabled">logo</span>
-              </h2>
-            </div>
-            <div class="modal-body">
-              <div class="bar-nav">
-                <div class="bar-top">
-                  <h2>Sassnex Pages</h2>
-                  <ul>
-                    <li>
-                      <a href="index.html">App Landing</a>
-                    </li>
-                    <li>
-                      <a href="product-landing.html">Product Landing</a>
-                    </li>
-                    <li>
-                      <a href="startup-agency.html">Startup Agency</a>
-                    </li>
-                    <li>
-                      <a href="payment-page.html">Payment Processing</a>
-                    </li>
-                    <li>
-                      <a href="marketing.html">Digital Marketing</a>
-                    </li>
-                    <li>
-                      <a href="sass-landing.html">Sass Landing</a>
-                    </li>
-                    <li>
-                      <a href="about.html">About Us</a>
-                    </li>
-                    <li>
-                      <a href="pricing-table.html">Pricing table Page</a>
-                    </li>
-                    <li>
-                      <a href="shop-page.html">Shop Page</a>
-                    </li>
-                    <li>
-                      <a href="blog.html">Blog</a>
-                    </li>
-                    <li>
-                      <a href="sign-in.html">Sign In</a>
-                    </li>
-                    <li>
-                      <a href="contact.html">Contact</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="bar-contact">
-                <span>Contact</span>
-                <span>+44 7700 900077</span>
-                <span>support@sassnex.com</span>
-              </div>
+    <!-- 侧边工具栏 -->
+    <side-bar-menu></side-bar-menu>
 
-              <div class="bar-icon">
-                <div class="serach_option widget_single">
-                  <form>
-                    <input type="text" name="Name" class="input-c" placeholder="Name">
-                    <button type="submit">
-                      <i class="flaticon-paper-plane"></i>
-                    </button>
-                  </form>
-                </div>
-                <ul class="social_iocns d-flex">
-                  <li>
-                    <a href="#">
-                      <i class="flaticon-facebook-logo icon_tw"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="flaticon-twitter icon_fb"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="flaticon-instagram-logo icon_pin"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="flaticon-linkedin-logo icon_link"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- modal-content -->
-        </div>
-        <!-- modal-dialog -->
-      </div>
-      <!-- modal -->
-    </section>
-    <!-- sidebar -->
-
-    <!-- Start Services -->
+    <!-- favorite services -->
     <section class="favorite_services">
       <div class="container">
         <div class="row">
@@ -683,37 +305,11 @@
     </section>
     <!-- End Testimonial Payment -->
 
-    <footer id="footer_payment">
-      <div class="footer_bottom">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <p>Copyright &copy; Ecologytheme 2019. All rights reserved.</p>
-            </div>
-            <div class="col-md-6">
-              <ul class="copy_right_items d-flex justify-content-end">
-                <li>
-                  <a href="#">Terms & Use</a>
-                </li>
-                <li>
-                  <a href="#">Privacy Policy</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- End Footer -->
+    <!-- 通用页面footer -->
+    <common-footer></common-footer>
 
-    <section id="scroll-top" class="scroll-top">
-      <h2 class="disabled">Scroll to top</h2>
-      <div class="to-top pos-rtive">
-        <a href="#">
-          <i class="flaticon-right-arrow"></i>
-        </a>
-      </div>
-    </section>
+    <!-- 滚动到顶部 -->
+    <scroll-top-icon></scroll-top-icon>
   </div>
 </template>
 
@@ -727,6 +323,7 @@ import Ellipsis from '@/components/Ellipsis'
 import NumberInfo from '@/components/NumberInfo'
 import TagSelect from '@/components/TagSelect'
 import { DescriptionList, TagCloud } from '@/components/'
+import commonPageMixin from 'src/mixins/commonPageMixin'
 
 const AvatarListItem = AvatarList.AvatarItem
 const TagSelectOption = TagSelect.Option
@@ -748,6 +345,8 @@ export default {
     DescriptionList,
     DescriptionListItem
   },
+  mixins: [commonPageMixin],
+
   data() {
     return {
       targetTime: new Date().getTime() + 3900000,
@@ -759,6 +358,27 @@ export default {
   },
   mounted() {
     // new WOW().init();
+
+    // Testimonial Payment
+    $('.slider_content').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: true,
+      asNavFor: '.slider_img'
+    })
+    $('.slider_img').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      asNavFor: '.slider_content',
+      dots: false,
+      prevArrow: "<a href='#'><i class='flaticon-left-arrow icon_left'></i></a>",
+      nextArrow: "<a href='#'><i class='flaticon-right-arrow icon_right'></i></a>",
+      centerMode: true,
+      focusOnSelect: true,
+      variableWidth: false,
+      arrows: true
+    })
   },
   methods: {
     onEndHandle() {

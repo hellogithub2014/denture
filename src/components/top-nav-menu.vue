@@ -237,7 +237,12 @@
 
 <script>
 export default {
-  name: 'top-nav-menu'
+  name: 'top-nav-menu',
+  mounted() {
+    jQuery('.mean_menu').meanmenu({
+      meanScreenWidth: '767'
+    })
+  }
 }
 </script>
 
