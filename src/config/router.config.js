@@ -23,7 +23,7 @@ export const asyncRouterMap = [
             path: '/dashboard/analysis',
             name: 'Analysis',
             component: () => import('@/views/dashboard/Analysis'),
-            meta: { title: '分析页', keepAlive: false, permission: ['dashboard'] }
+            meta: { title: '分析页', keepAlive: false, permission: [] }
           },
           // 外部链接
           {
@@ -220,13 +220,13 @@ export const asyncRouterMap = [
         component: RouteView,
         redirect: '/account/center',
         name: 'account',
-        meta: { title: '个人页', icon: 'user', keepAlive: true, permission: ['user'] },
+        meta: { title: '个人页', icon: 'user', keepAlive: true, permission: [] },
         children: [
           {
             path: '/account/center',
             name: 'center',
             component: () => import('@/views/account/center/Index'),
-            meta: { title: '个人中心', keepAlive: true, permission: ['user'] }
+            meta: { title: '个人中心', keepAlive: true, permission: [] }
           },
           {
             path: '/account/settings',

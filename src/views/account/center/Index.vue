@@ -1,84 +1,29 @@
 <template>
   <div class="page-header-index-wide page-header-wrapper-grid-content-main">
-    <a-row :gutter="24">
-      <a-col :md="24" :lg="7">
-        <a-card :bordered="false">
-          <div class="account-center-avatarHolder">
-            <div class="avatar">
-              <img :src="avatar()">
-            </div>
-            <div class="username">{{ nickname() }}</div>
-            <div class="bio">海纳百川，有容乃大</div>
-          </div>
-          <div class="account-center-detail">
-            <p>
-              <i class="title"></i>交互专家
-            </p>
-            <p>
-              <i class="group"></i>蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED
-            </p>
-            <p>
-              <i class="address"></i>
-              <span>浙江省</span>
-              <span>杭州市</span>
-            </p>
-          </div>
-          <a-divider/>
-
-          <div class="account-center-tags">
-            <div class="tagsTitle">标签</div>
-            <div>
-              <template v-for="(tag, index) in tags">
-                <a-tooltip v-if="tag.length > 20" :key="tag" :title="tag">
-                  <a-tag
-                    :key="tag"
-                    :closable="index !== 0"
-                    :afterClose="() => handleTagClose(tag)"
-                  >{{ `${tag.slice(0, 20)}...` }}</a-tag>
-                </a-tooltip>
-                <a-tag
-                  v-else
-                  :key="tag"
-                  :closable="index !== 0"
-                  :afterClose="() => handleTagClose(tag)"
-                >{{ tag }}</a-tag>
-              </template>
-              <a-input
-                v-if="tagInputVisible"
-                ref="tagInput"
-                type="text"
-                size="small"
-                :style="{ width: '78px' }"
-                :value="tagInputValue"
-                @change="handleInputChange"
-                @blur="handleTagInputConfirm"
-                @keyup.enter="handleTagInputConfirm"
-              />
-              <a-tag v-else @click="showTagInput" style="background: #fff; borderStyle: dashed;">
-                <a-icon type="plus"/>New Tag
-              </a-tag>
-            </div>
-          </div>
-          <a-divider :dashed="true"/>
-
-          <div class="account-center-team">
-            <div class="teamTitle">团队</div>
-            <a-spin :spinning="teamSpinning">
-              <div class="members">
-                <a-row>
-                  <a-col :span="12" v-for="(item, index) in teams" :key="index">
-                    <a>
-                      <a-avatar size="small" :src="item.avatar"/>
-                      <span class="member">{{ item.name }}</span>
-                    </a>
-                  </a-col>
-                </a-row>
-              </div>
-            </a-spin>
-          </div>
-        </a-card>
+    <a-row :gutter="24" class="more-info">
+      <a-col :span="4">
+        <head-info
+          title="注册证号"
+          :content="userInfo.certificate_no"
+          :center="false"
+          :bordered="false"
+        />
       </a-col>
-      <a-col :md="24" :lg="17">{{ userInfo }}</a-col>
+      <a-col :span="4">
+        <head-info title="ID" :content="userInfo.id" :center="false" :bordered="false"/>
+      </a-col>
+      <a-col :span="4">
+        <head-info title="姓名" :content="userInfo.name" :center="false"/>
+      </a-col>
+      <a-col :span="4">
+        <head-info title="电话" :content="userInfo.telephone" :center="false"/>
+      </a-col>
+      <a-col :span="4">
+        <head-info title="用户名" :content="userInfo.username" :center="false"/>
+      </a-col>
+      <a-col :span="4">
+        <head-info title="创建时间" :content="userInfo.create_time" :center="false"/>
+      </a-col>
     </a-row>
   </div>
 </template>
@@ -86,6 +31,7 @@
 <script>
 import { PageView, RouteView } from '@/layouts'
 import { AppPage, ArticlePage, ProjectPage } from './page'
+import HeadInfo from '@/components/tools/HeadInfo'
 
 import { mapGetters } from 'vuex'
 import API from 'src/api'
@@ -96,7 +42,8 @@ export default {
     PageView,
     AppPage,
     ArticlePage,
-    ProjectPage
+    ProjectPage,
+    HeadInfo
   },
   data() {
     return {
@@ -177,6 +124,12 @@ export default {
   height: 100%;
   min-height: 100%;
   transition: 0.3s;
+
+  .more-info {
+    background: #fff;
+    padding: 16px 32px 0;
+    border-bottom: 1px solid #e8e8e8;
+  }
 
   .account-center-avatarHolder {
     text-align: center;
