@@ -15,7 +15,8 @@ router.beforeEach((to, from, next) => {
   NProgress.start() // start progress bar
   to.meta && (typeof to.meta.title !== 'undefined' && setDocumentTitle(`${to.meta.title} - ${domTitle}`))
   // 判断是否已登录
-  if (Cookies.get('SESSION_ID')) {
+  const cookies = Cookies.get()
+  if (cookies['SESSION_ID']) {
     /* has token */
     if (to.path === '/user/login') {
       next({ path: '/dashboard/workplace' })
