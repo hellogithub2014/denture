@@ -92,7 +92,7 @@
                     </a-form-item>
                   </div>
 
-                  <!-- TODO: 在注册类型为加工所时才展示，注意动态校验的逻辑 -->
+                  <!-- 在注册类型为加工所时才展示，注意动态校验的逻辑 -->
                   <div class="col-12 col-lg-12 col-md-12 col-lg-12" v-if="isSelectInstitution()">
                     <a-form-item class="form-group">
                       <label class="control-label">注册证号</label>

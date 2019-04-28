@@ -28,7 +28,10 @@
       :collapsible="true"
     ></side-menu>
 
-    <a-layout :class="[layoutMode, `content-width-${contentWidth}`]" :style="{ paddingLeft: contentPaddingLeft, minHeight: '100vh' }">
+    <a-layout
+      :class="[layoutMode, `content-width-${contentWidth}`]"
+      :style="{ paddingLeft: contentPaddingLeft, minHeight: '100vh' }"
+    >
       <!-- layout header -->
       <global-header
         :mode="layoutMode"
@@ -40,23 +43,24 @@
       />
 
       <!-- layout content -->
-      <a-layout-content :style="{ height: '100%', margin: multiTab ? '24px 24px 0' : '24px 24px 0', paddingTop: fixedHeader ? '64px' : '0' }">
+      <a-layout-content
+        :style="{ height: '100%', margin: multiTab ? '24px 24px 0' : '24px 24px 0', paddingTop: fixedHeader ? '64px' : '0' }"
+      >
         <multi-tab v-if="multiTab"></multi-tab>
         <transition name="page-transition">
-          <route-view />
+          <route-view/>
         </transition>
       </a-layout-content>
 
       <!-- layout footer -->
       <a-layout-footer>
-        <global-footer />
+        <global-footer/>
       </a-layout-footer>
 
       <!-- Setting Drawer (show in development mode) -->
       <setting-drawer v-if="!production"></setting-drawer>
     </a-layout>
   </a-layout>
-
 </template>
 
 <script>
@@ -83,7 +87,7 @@ export default {
     GlobalFooter,
     SettingDrawer
   },
-  data () {
+  data() {
     return {
       production: config.production,
       collapsed: false,
@@ -95,7 +99,7 @@ export default {
       // 动态主路由
       mainMenu: state => state.permission.addRouters
     }),
-    contentPaddingLeft () {
+    contentPaddingLeft() {
       if (!this.fixSidebar || this.isMobile()) {
         return '0'
       }
@@ -106,15 +110,15 @@ export default {
     }
   },
   watch: {
-    sidebarOpened (val) {
+    sidebarOpened(val) {
       this.collapsed = !val
     }
   },
-  created () {
+  created() {
     this.menus = this.mainMenu.find(item => item.path === '/').children
     this.collapsed = !this.sidebarOpened
   },
-  mounted () {
+  mounted() {
     const userAgent = navigator.userAgent
     if (userAgent.indexOf('Edge') > -1) {
       this.$nextTick(() => {
@@ -127,12 +131,12 @@ export default {
   },
   methods: {
     ...mapActions(['setSidebar']),
-    toggle () {
+    toggle() {
       this.collapsed = !this.collapsed
       this.setSidebar(!this.collapsed)
       triggerWindowResizeEvent()
     },
-    paddingCalc () {
+    paddingCalc() {
       let left = ''
       if (this.sidebarOpened) {
         left = this.isDesktop() ? '256px' : '80px'
@@ -141,12 +145,12 @@ export default {
       }
       return left
     },
-    menuSelect () {
+    menuSelect() {
       if (!this.isDesktop()) {
         this.collapsed = false
       }
     },
-    drawerClose () {
+    drawerClose() {
       this.collapsed = false
     }
   }

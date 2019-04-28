@@ -11,7 +11,8 @@ const api = {
   memberList: `/rs/member`,
   Login: `/op/login`,
   Register: `/op/register`,
-  Logout: '/op/logout'
+  Logout: '/op/logout',
+  sendEmail: '/op/email'
 }
 
 export default api

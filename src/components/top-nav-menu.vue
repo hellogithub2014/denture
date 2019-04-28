@@ -13,7 +13,7 @@
                   <a href="#" class="nav-link">Home</a>
                   <ul class="dropdown_menu">
                     <li>
-                      <a href="index.html">App Landing</a>
+                      <a href="/">WorkSpace</a>
                     </li>
                     <li>
                       <a href="product-landing.html">Product Landing</a>
