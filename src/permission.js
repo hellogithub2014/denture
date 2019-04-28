@@ -17,8 +17,7 @@ router.beforeEach((to, from, next) => {
   // 判断是否已登录
   const cookies = Cookies.get()
   if (cookies['SESSION_ID']) {
-    /* has token */
-    if (to.path === '/user/login') {
+    if (to.name === 'login' || to.name === 'register') {
       next({ path: '/dashboard/workplace' })
       NProgress.done()
     } else {

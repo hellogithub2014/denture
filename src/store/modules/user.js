@@ -3,6 +3,7 @@ import { login, getInfo, logout } from '@/api/login'
 import { ACCESS_TOKEN } from '@/store/mutation-types'
 import { welcome } from '@/utils/util'
 import { roleId as roleIdMap } from 'src/const/user-type'
+import Cookies from 'js-cookie'
 
 const user = {
   state: {
@@ -116,6 +117,8 @@ const user = {
       return new Promise(resolve => {
         commit('SET_TOKEN', '')
         commit('SET_ROLES', [])
+        Cookies.remove('SESSION_ID')
+
         Vue.ls.remove(ACCESS_TOKEN)
 
         logout(state.token)

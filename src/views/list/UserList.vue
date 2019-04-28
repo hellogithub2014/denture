@@ -121,10 +121,6 @@ export default {
           dataIndex: 'type'
         },
         {
-          title: 'rank',
-          dataIndex: 'rank' // TODO: type和rank差别
-        },
-        {
           title: '创建时间',
           dataIndex: 'create_time'
         },

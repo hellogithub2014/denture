@@ -1,5 +1,4 @@
 const api = {
-  Logout: '/auth/logout',
   ForgePassword: '/auth/forge-password',
   twoStepCode: '/auth/2step-code',
   SendSms: '/account/sms',
@@ -11,7 +10,8 @@ const api = {
   userinfo: `/rs/userinfo`,
   memberList: `/rs/member`,
   Login: `/op/login`,
-  Register: `/op/register`
+  Register: `/op/register`,
+  Logout: '/op/logout'
 }
 
 export default api
