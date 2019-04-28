@@ -25,12 +25,6 @@ export const asyncRouterMap = [
             component: () => import('@/views/dashboard/Analysis'),
             meta: { title: '分析页', keepAlive: false, permission: [] }
           },
-          // 外部链接
-          {
-            path: 'https://www.baidu.com/',
-            name: 'Monitor',
-            meta: { title: '监控页（外部）', target: '_blank' }
-          },
           {
             path: '/dashboard/workplace',
             name: 'Workplace',
@@ -51,7 +45,7 @@ export const asyncRouterMap = [
             path: '/form/base-form',
             name: 'BaseForm',
             component: () => import('@/views/form/BasicForm'),
-            meta: { title: '基础表单', keepAlive: true, permission: ['form'] }
+            meta: { title: '义齿信息登记', keepAlive: true, permission: ['form'] }
           },
           {
             path: '/form/step-form',
@@ -81,14 +75,7 @@ export const asyncRouterMap = [
             name: 'TableListWrapper',
             hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
             component: () => import('@/views/list/TableList'),
-            meta: { title: '加工所查询表格', keepAlive: true, permission: ['table'] }
-          },
-          {
-            path: '/list/customer-table-list',
-            name: 'CustomerTableList',
-            hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
-            component: () => import('@/views/list/CustomerTableList'),
-            meta: { title: '消费者查询表格', keepAlive: true, permission: ['table'] }
+            meta: { title: '义齿查询列表', keepAlive: true, permission: ['table'] }
           },
           {
             path: '/list/user-table-list',
@@ -354,17 +341,24 @@ export const constantRouterMap = [
       {
         path: 'login',
         name: 'login',
-        component: () => import(/* webpackChunkName: "user" */ '@/views/user/Login')
+        // component: () => import(/* webpackChunkName: "user" */ '@/views/user/Login')
+        component: () => import('@/views/Login')
       },
       {
         path: 'register',
         name: 'register',
-        component: () => import(/* webpackChunkName: "user" */ '@/views/user/Register')
+        // component: () => import(/* webpackChunkName: "user" */ '@/views/user/Register')
+        component: () => import('@/views/Register')
       },
       {
         path: 'register-result',
         name: 'registerResult',
         component: () => import(/* webpackChunkName: "user" */ '@/views/user/RegisterResult')
+      },
+      {
+        path: 'home',
+        name: 'homePage',
+        component: () => import('@/views/Home')
       }
     ]
   },

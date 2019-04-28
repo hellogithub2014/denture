@@ -15,6 +15,7 @@ import { axios } from '@/utils/request'
 export function login (parameter) {
   return axios({
     url: api.Login,
+    // url: '/api/auth/login',
     method: 'post',
     data: parameter
   })
@@ -31,6 +32,7 @@ export function getSmsCaptcha (parameter) {
 export function getInfo () {
   return axios({
     url: api.userinfo,
+    // url: '/api/user/info',
     method: 'get',
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'

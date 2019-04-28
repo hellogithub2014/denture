@@ -104,6 +104,7 @@
 <script>
 import API from 'src/api'
 import commonPageMixin from 'src/mixins/commonPageMixin'
+import { mapActions } from 'vuex'
 
 export default {
   mixins: [commonPageMixin],
@@ -116,20 +117,21 @@ export default {
     new WOW().init()
   },
   methods: {
+    ...mapActions(['Login', 'Logout']),
     handleSubmit(e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
         if (!err) {
-          this.login(values)
+          this.Login(values).then(() => this.redirect())
         }
       })
-    },
-    login(formData) {
-      this.axios.post(API.Login, formData).then(resp => {
-        // 登录接口需要返回用户类型
-        this.redirect(resp.userinfo)
-      })
     }
+    // login(formData) {
+    //   this.axios.post(API.Login, formData).then(resp => {
+    //     // 登录接口需要返回用户类型
+    //     this.redirect(resp.userinfo)
+    //   })
+    // }
   }
 }
 </script>

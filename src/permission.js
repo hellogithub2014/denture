@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import router from './router'
 import store from './store'
 
@@ -6,16 +5,17 @@ import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import notification from 'ant-design-vue/es/notification'
 import { setDocumentTitle, domTitle } from '@/utils/domUtil'
-import { ACCESS_TOKEN } from '@/store/mutation-types'
+import Cookies from 'js-cookie'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-const whiteList = ['login', 'register', 'registerResult'] // no redirect whitelist
+const whiteList = ['login', 'register', 'registerResult', 'homePage'] // no redirect whitelist
 
 router.beforeEach((to, from, next) => {
   NProgress.start() // start progress bar
   to.meta && (typeof to.meta.title !== 'undefined' && setDocumentTitle(`${to.meta.title} - ${domTitle}`))
-  if (Vue.ls.get(ACCESS_TOKEN)) {
+  // 判断是否已登录
+  if (Cookies.get('SESSION_ID')) {
     /* has token */
     if (to.path === '/user/login') {
       next({ path: '/dashboard/workplace' })

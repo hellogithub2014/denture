@@ -100,15 +100,14 @@ export default {
         { item: '热度', a: 60, b: 70, c: 40 },
         { item: '引用', a: 70, b: 50, c: 40 }
       ],
-      radarData: [],
-      userInfo: {}
+      radarData: []
     }
   },
-  // computed: {
-  //   userInfo() {
-  //     return this.$store.getters.userInfo
-  //   }
-  // },
+  computed: {
+    userInfo() {
+      return this.$store.getters.userInfo
+    }
+  },
   created() {
     this.user = this.userInfo
     this.avatar = this.userInfo.avatar
@@ -120,8 +119,6 @@ export default {
     getServiceList().then(res => {
       console.log('workplace -> call getServiceList()', res)
     })
-
-    this.getUserinfo()
   },
   mounted() {
     this.getProjects()
@@ -131,11 +128,6 @@ export default {
   },
   methods: {
     ...mapGetters(['nickname', 'welcome']),
-    getUserinfo() {
-      return this.axios.get(API.userinfo).then(resp => {
-        this.userInfo = resp.rows[0]
-      })
-    },
     getProjects() {
       this.$http.get('/list/search/projects').then(res => {
         this.projects = res.result && res.result.data

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import { login, getInfo, logout } from '@/api/login'
 import { ACCESS_TOKEN } from '@/store/mutation-types'
 import { welcome } from '@/utils/util'
+import { roleId as roleIdMap } from 'src/const/user-type'
 
 const user = {
   state: {
@@ -38,6 +39,11 @@ const user = {
       return new Promise((resolve, reject) => {
         login(userInfo)
           .then(response => {
+            // const token = Math.random()
+            //   .toString(16)
+            //   .slice(2, 16)
+            // Vue.ls.set(ACCESS_TOKEN, token, 7 * 24 * 60 * 60 * 1000)
+            // commit('SET_TOKEN', token)
             resolve()
           })
           .catch(error => {
@@ -46,12 +52,31 @@ const user = {
       })
     },
 
-    // 获取用户信息. TODO: 此处设置用户permission
+    // 获取用户信息.
     GetInfo ({ commit }) {
       return new Promise((resolve, reject) => {
         getInfo()
           .then(response => {
-            const result = response.result
+            // 此处设置用户permission
+            const origin = response.rows[0]
+            const roleIdOption = roleIdMap[origin.type]
+            const result = {
+              ...origin,
+              avatar: '/avatar2.jpg',
+              roleId: roleIdOption.id,
+              role: {
+                id: roleIdOption.id,
+                name: roleIdOption.name,
+                describe: roleIdOption.describe,
+                status: 1,
+                creatorId: 'system',
+                createTime: 1497160610259,
+                deleted: 0,
+                permissions: roleIdOption.permissions
+              }
+            }
+
+            // const result = response.result
 
             if (result.role && result.role.permissions.length > 0) {
               const role = result.role
@@ -76,7 +101,9 @@ const user = {
             commit('SET_NAME', { name: result.name, welcome: welcome() })
             commit('SET_AVATAR', result.avatar)
 
-            resolve(response)
+            resolve({
+              result
+            })
           })
           .catch(error => {
             reject(error)
