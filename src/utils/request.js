@@ -48,6 +48,11 @@ service.interceptors.request.use(config => {
 
 // response interceptor
 service.interceptors.response.use(response => {
+  const { data } = response
+  if (data.err) {
+    new Vue().$message.error(data.err)
+    return Promise.reject(data.err)
+  }
   return response.data
 }, err)
 

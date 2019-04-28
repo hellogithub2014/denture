@@ -100,7 +100,7 @@
                         placeholder="验证码"
                         v-decorator="['captcha', {rules: [{ required: true, message: '请输入验证码' }], validateTrigger: ['change', 'blur']}]"
                       ></a-input>
-                      <img :src="captureUrl">
+                      <img :src="captureUrl" @click="getCapture">
                     </a-form-item>
                   </div>
                 </div>
@@ -120,7 +120,7 @@
                       <br>
                       <span>
                         Already a registered user?
-                        <a href title class="forget_pass">Log In</a>
+                        <router-link :to="{name: 'TestLogin'}" class="forget_pass">Log In</router-link>
                       </span>
                     </div>
                   </div>
@@ -155,7 +155,12 @@ export default {
   data() {
     return {
       form: this.$form.createForm(this),
-      captureUrl: ''
+      rand: Math.random()
+    }
+  },
+  computed: {
+    captureUrl() {
+      return `${API.getCapture}?rand=${this.rand}`
     }
   },
   created() {
@@ -166,15 +171,7 @@ export default {
   },
   methods: {
     getCapture() {
-      this.axios
-        .get(API.getCapture, {
-          params: {
-            rand: Math.random()
-          }
-        })
-        .then(resp => {
-          this.captureUrl = resp
-        })
+      this.rand = Math.random()
     },
     handleSubmit(e) {
       e.preventDefault()
@@ -185,9 +182,12 @@ export default {
       })
     },
     registe(formData) {
-      this.axios.post(API.Register, formData).then(resp => {
-        this.redirect(formData.type)
-      })
+      this.axios
+        .post(API.Register, formData)
+        .then(resp => {
+          this.redirect(formData.type)
+        })
+        .finally(() => this.getCapture())
     },
     redirect(type) {
       // 注册类型是消费者，跳转到消费者查询列表

@@ -56,7 +56,7 @@
                         placeholder="验证码"
                         v-decorator="['captcha', {rules: [{ required: true, message: '请输入验证码' }], validateTrigger: ['change', 'blur']}]"
                       ></a-input>
-                      <img :src="captureUrl">
+                      <img :src="captureUrl" @click="getCapture">
                     </a-form-item>
                   </div>
                 </div>
@@ -76,7 +76,7 @@
                       <br>
                       <span>
                         New User?
-                        <a href title class="forget_pass">Sign Up</a>
+                        <router-link :to="{name: 'TestRegister'}" class="forget_pass">Sign Up</router-link>
                       </span>
                     </div>
                   </div>
@@ -110,26 +110,20 @@ export default {
   data() {
     return {
       form: this.$form.createForm(this),
-      captureUrl: ''
+      rand: Math.random()
     }
   },
-  created() {
-    this.getCapture()
+  computed: {
+    captureUrl() {
+      return `${API.getCapture}?rand=${this.rand}`
+    }
   },
   mounted() {
     new WOW().init()
   },
   methods: {
     getCapture() {
-      this.axios
-        .get(API.getCapture, {
-          params: {
-            rand: Math.random()
-          }
-        })
-        .then(resp => {
-          this.captureUrl = resp
-        })
+      this.rand = Math.random()
     },
     handleSubmit(e) {
       e.preventDefault()

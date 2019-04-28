@@ -1,19 +1,17 @@
-const prefix = 'http://yichi.fenewbee.com'
-
 const api = {
-  Login: `${prefix}/op/login`,
   Logout: '/auth/logout',
   ForgePassword: '/auth/forge-password',
-  Register: `${prefix}/op/register`,
   twoStepCode: '/auth/2step-code',
   SendSms: '/account/sms',
   SendSmsErr: '/account/sms_err',
   // get my info
   UserInfo: '/api/user/info',
-  getCapture: `${prefix}/sm/code`,
-  product: `${prefix}/rs/product`,
-  userinfo: `${prefix}/rs/userinfo`,
-  memberList: `${prefix}/rs/member`
+  getCapture: `/sm/code`,
+  product: `/rs/product`,
+  userinfo: `/rs/userinfo`,
+  memberList: `/rs/member`,
+  Login: `/op/login`,
+  Register: `/op/register`
 }
 
 export default api
