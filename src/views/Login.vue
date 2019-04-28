@@ -76,7 +76,7 @@
                       <br>
                       <span>
                         New User?
-                        <router-link :to="{name: 'TestRegister'}" class="forget_pass">Sign Up</router-link>
+                        <router-link :to="{name: 'register'}" class="forget_pass">Sign Up</router-link>
                       </span>
                     </div>
                   </div>
@@ -122,7 +122,9 @@ export default {
       e.preventDefault()
       this.form.validateFields((err, values) => {
         if (!err) {
-          this.Login(values).then(() => this.redirect())
+          this.Login(values)
+            .then(() => this.redirect())
+            .finally(() => this.getCapture())
         }
       })
     }

@@ -143,7 +143,7 @@
                       <br>
                       <span>
                         Already a registered user?
-                        <router-link :to="{name: 'TestLogin'}" class="forget_pass">Log In</router-link>
+                        <router-link :to="{name: 'login'}" class="forget_pass">Log In</router-link>
                       </span>
                     </div>
                   </div>

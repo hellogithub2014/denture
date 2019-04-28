@@ -82,7 +82,7 @@ export const asyncRouterMap = [
             name: 'UserTableList',
             hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
             component: () => import('@/views/list/UserList'),
-            meta: { title: '用户列表', keepAlive: true, permission: ['table'] }
+            meta: { title: '用户列表', keepAlive: true, permission: ['user-table'] }
           },
           {
             path: '/list/basic-list',
