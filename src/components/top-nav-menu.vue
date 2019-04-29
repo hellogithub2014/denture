@@ -10,188 +10,18 @@
             <div class="collapse navbar-collapse mean_menu" id="navbarSupportedContent">
               <ul class="navbar-nav nav ml-auto">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">Home</a>
-                  <ul class="dropdown_menu">
-                    <li>
-                      <router-link :to="{name: 'Workplace'}" class="forget_pass">WorkSpace</router-link>
-                      <!-- <a href="/dashboard/workplace">WorkSpace</a> -->
-                    </li>
-                    <li>
-                      <a href="product-landing.html">Product Landing</a>
-                    </li>
-                    <li>
-                      <a href="startup-agency.html">Startup Agency</a>
-                    </li>
-                    <li>
-                      <a href="payment-page.html">Payment Processing</a>
-                    </li>
-                    <li>
-                      <a href="marketing.html">Digital Marketing</a>
-                    </li>
-                    <li>
-                      <a href="sass-landing.html">Sass Landing</a>
-                    </li>
-                  </ul>
+                  <a href="/manage/dashboard/workplace" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link active">Pages</a>
-                  <ul class="dropdown_menu">
-                    <li>
-                      <a href="index.html">Home Pages</a>
-                      <ul class="dropdown_menu">
-                        <li>
-                          <a href="index.html">App Landing</a>
-                        </li>
-                        <li>
-                          <a href="product-landing.html">Product Landing</a>
-                        </li>
-                        <li>
-                          <a href="startup-agency.html">Startup Agency</a>
-                        </li>
-                        <li>
-                          <a href="payment-page.html">Payment Processing</a>
-                        </li>
-                        <li>
-                          <a href="marketing.html">Digital Marketing</a>
-                        </li>
-                        <li>
-                          <a href="sass-landing.html">Sass Landing</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">Blog</a>
-                      <ul class="dropdown_menu">
-                        <li>
-                          <a href="blog.html">Blog</a>
-                        </li>
-                        <li>
-                          <a href="blog-details.html">Blog Details</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">Shop</a>
-                      <ul class="dropdown_menu">
-                        <li>
-                          <a href="shop-page.html">Shop Page</a>
-                        </li>
-                        <li>
-                          <a href="shop-details.html">Shop Details</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="about.html">About Us</a>
-                    </li>
-                    <li>
-                      <a href="team.html">Team Page</a>
-                    </li>
-                    <li>
-                      <a href="pricing-table.html">Pricing table Page</a>
-                    </li>
-                    <li>
-                      <a href="sign-in.html">Sign In</a>
-                    </li>
-                    <li>
-                      <a href="sign-up.html" class="active">Sign Up</a>
-                    </li>
-                    <li>
-                      <a href="portfolio.html">Portfolio</a>
-                    </li>
-                    <li>
-                      <a href="contact.html">Contact</a>
-                    </li>
-                  </ul>
+                  <a href="/search" class="nav-link">Search</a>
                 </li>
                 <li class="nav-item">
-                  <a href="portfolio.html" class="nav-link">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">Blog</a>
-                  <ul class="dropdown_menu">
-                    <li>
-                      <a href="blog.html">Blog</a>
-                    </li>
-                    <li>
-                      <a href="blog-details.html">Blog Details</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">Shop</a>
-                  <ul class="dropdown_menu">
-                    <li>
-                      <a href="shop-page.html">Shop Page</a>
-                    </li>
-                    <li>
-                      <a href="shop-details.html">Shop Details</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="contact.html" class="nav-link">Contact</a>
+                  <a href="/contact" class="nav-link">Contact</a>
                 </li>
               </ul>
             </div>
             <div class="mr-auto others_option">
               <ul class="navbar-nav mx-auto d-flex">
-                <li class="nav-item cart_wrapper">
-                  <i class="flaticon-shopping-cart cart_icon"></i>
-                  <ul class="cart_list">
-                    <li class="d-flex justify-content-between">
-                      <div class="cart-img">
-                        <a href="#">
-                          <img alt src="../assets/images/products/product_1.png" class="img-fluid">
-                        </a>
-                      </div>
-                      <div class="cart-info">
-                        <h4>
-                          <a href="#">Vestibulum suscipit</a>
-                        </h4>
-                        <span>
-                          $165.00
-                          <span>x 1</span>
-                        </span>
-                      </div>
-                      <div class="del-icon">
-                        <i class="flaticon-close"></i>
-                      </div>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                      <div class="cart-img">
-                        <a href="#">
-                          <img alt src="../assets/images/products/product_2.png" class="img-fluid">
-                        </a>
-                      </div>
-                      <div class="cart-info">
-                        <h4>
-                          <a href="#">Vestibulum suscipit</a>
-                        </h4>
-                        <span>
-                          $165.00
-                          <span>x 1</span>
-                        </span>
-                      </div>
-                      <div class="del-icon">
-                        <i class="flaticon-close"></i>
-                      </div>
-                    </li>
-                    <li class="cart-border">
-                      <div class="subtotal-text">Subtotal:</div>
-                      <div class="subtotal-price">$300.00</div>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                      <a class="cart-button" href="#">view cart</a>
-                      <a class="checkout" href="#">checkout</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="header-search-box btn-color-dark">
-                  <a href="#header-search" title="Search">
-                    <i class="flaticon-search search_btn"></i>
-                  </a>
-                </li>
                 <li
                   class="nav-item sign-in-option btn-demo"
                   data-toggle="modal"
@@ -238,9 +68,9 @@
 
 <script>
 export default {
-  name: 'top-nav-menu',
+  name: 'TopNavMenu',
   mounted() {
-    jQuery('.mean_menu').meanmenu({
+    window.jQuery('.mean_menu').meanmenu({
       meanScreenWidth: '767'
     })
   }
