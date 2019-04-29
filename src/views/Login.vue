@@ -70,7 +70,7 @@
                       <span class="keep_me_login">Keep me Log in</span>
                     </div>
                     <a href title class="forget_pass">Forget Password ?</a>
-                  </div> -->
+                  </div>-->
                   <div class="col-12 col-lg-12 col-md-12 col-lg-12">
                     <div class="login_option">
                       <button type="submit" class="btn btn-default login_btn">Log In</button>
@@ -109,32 +109,26 @@ import { mapActions } from 'vuex'
 
 export default {
   mixins: [commonPageMixin],
-  data () {
+  data() {
     return {
       form: this.$form.createForm(this)
     }
   },
-  mounted () {
+  mounted() {
     new WOW().init()
   },
   methods: {
     ...mapActions(['Login', 'Logout']),
-    handleSubmit (e) {
+    handleSubmit(e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
         if (!err) {
           this.Login(values)
-            .then(() => this.redirect())
+            .then(userinfo => this.redirect(userinfo))
             .finally(() => this.getCapture())
         }
       })
     }
-    // login(formData) {
-    //   this.axios.post(API.Login, formData).then(resp => {
-    //     // 登录接口需要返回用户类型
-    //     this.redirect(resp.userinfo)
-    //   })
-    // }
   }
 }
 </script>

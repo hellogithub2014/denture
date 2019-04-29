@@ -40,7 +40,16 @@ export const roleId = {
     id: 'customer',
     name: '消费者',
     describe: '消费者',
-    permissions: [].map(item => ({
+    permissions: [
+      {
+        permissionId: 'exception',
+        permissionName: '异常页面权限',
+        actions,
+        actionEntitySet,
+        actionList: null,
+        dataAccess: null
+      }
+    ].map(item => ({
       ...item,
       roleId: 'customer'
     }))

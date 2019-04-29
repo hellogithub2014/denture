@@ -45,7 +45,7 @@ const user = {
             //   .slice(2, 16)
             // Vue.ls.set(ACCESS_TOKEN, token, 7 * 24 * 60 * 60 * 1000)
             // commit('SET_TOKEN', token)
-            resolve()
+            resolve(response.userinfo)
           })
           .catch(error => {
             reject(error)
@@ -73,7 +73,8 @@ const user = {
                 creatorId: 'system',
                 createTime: 1497160610259,
                 deleted: 0,
-                permissions: roleIdOption.permissions
+                permissions: roleIdOption.permissions,
+                permissionList: []
               }
             }
 

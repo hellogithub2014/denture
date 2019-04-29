@@ -37,22 +37,22 @@ export default {
       this.rand = Math.random()
     },
     redirect (userinfo) {
-      this.$router.push({ name: 'Workplace' })
-      // const type = +userinfo.type
+      // this.$router.push({ name: 'Workplace' })
+      const type = +userinfo.type
       // 注册类型是消费者，跳转到消费者查询列表
-      // if (+type === userType.customer) {
-      //   this.$router.push({ name: 'CustomerTableList' })
-      //   return
-      // }
+      if (+type === userType.customer) {
+        this.$router.push({ name: 'homePage' })
+        return
+      }
       // 注册类型是加工所，跳转到加工所查询列表
-      // if (+type === userType.institution) {
-      //   this.$router.push({ name: 'TableListWrapper' })
-      //   return
-      // }
+      if (+type === userType.institution) {
+        this.$router.push({ name: 'Workplace' })
+        return
+      }
       // 注册类型是加工所，跳转到加工所查询列表
-      // if (+type === userType.admin) {
-      //   this.$router.push({ name: 'TableListWrapper' })
-      // }
+      if (+type === userType.admin) {
+        this.$router.push({ name: 'Workplace' })
+      }
     }
   }
 }
