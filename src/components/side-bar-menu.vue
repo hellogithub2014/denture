@@ -30,7 +30,7 @@
                 <h2>Quick Pages</h2>
                 <ul>
                   <li class="nav-item">
-                    <a href="/dashboard/workplace" class="nav-link">Home</a>
+                    <a href="/manage/dashboard/workplace" class="nav-link">Home</a>
                   </li>
                   <li class="nav-item">
                     <a href="/search" class="nav-link">Search</a>
