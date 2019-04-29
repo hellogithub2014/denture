@@ -3,7 +3,7 @@
     <div class="sassnex_nav">
       <div class="container">
         <nav class="navbar navbar-expand-md navbar-light bg-faded">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="/">
             <img src="../assets/images/logo1.png" alt="logo">
           </a>
           <div class="collapse navbar-collapse mean_menu" id="navbarSupportedContent">
