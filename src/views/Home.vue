@@ -2,47 +2,8 @@
   <div>
     <!-- dom结构不一致，没有复用 top-nav-menu.vue -->
     <header id="payment" class>
-      <div class="header-top">
-        <div class="sassnex_nav">
-          <div class="container">
-            <nav class="navbar navbar-expand-md navbar-light bg-faded">
-              <a class="navbar-brand" href="index.html">
-                <img src="../assets/images/logo1.png" alt="logo">
-              </a>
-              <div class="collapse navbar-collapse mean_menu" id="navbarSupportedContent">
-                <ul class="navbar-nav nav ml-auto">
-                  <li class="nav-item">
-                    <a href="/manage/dashboard/workplace" class="nav-link">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/search" class="nav-link">Search</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/contact" class="nav-link">Contact</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="mr-auto others_option">
-                <ul class="navbar-nav mx-auto d-flex">
-                  <li
-                    class="nav-item sign-in-option btn-demo"
-                    data-toggle="modal"
-                    data-target="#myModal2"
-                  >
-                    <div class="side_menu">
-                      <span class="line_1"></span>
-                      <span class="line_2"></span>
-                      <span class="line_3"></span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-            <!-- END NAVBAR -->
-          </div>
-        </div>
-      </div>
-
+      <!-- 顶部导航栏 -->
+      <top-bar-menu></top-bar-menu>
       <div class="intro_wrapper">
         <div class="container">
           <div class="row">
@@ -103,123 +64,6 @@
 
     <!-- 侧边工具栏 -->
     <side-bar-menu></side-bar-menu>
-
-    <!-- contact page -->
-    <section class="contact_page">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-6 col-lg-7">
-            <div class="contact_banner">
-              <img src="../assets/images/illustration/contact.png" alt>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-5">
-            <div class="sign_in_form">
-              <div class="form_title">
-                <h2>Send Us an Email</h2>
-              </div>
-              <a-form :form="form" @submit="handleSubmit">
-                <div class="row">
-                  <div class="col-12 col-md-12 col-lg-12">
-                    <a-form-item class="form-group">
-                      <a-input
-                        class="form-control"
-                        placeholder="Name"
-                        v-decorator="['name', {rules: [{ required: true, message: '请输入Name' }], validateTrigger: ['change', 'blur']}]"
-                      ></a-input>
-                    </a-form-item>
-                  </div>
-                  <div class="col-12 col-md-12 col-lg-12">
-                    <a-form-item class="form-group">
-                      <a-input
-                        type="email"
-                        class="form-control"
-                        placeholder="Email"
-                        v-decorator="['email', {rules: [{ required: true, message: '请输入Email' }], validateTrigger: ['change', 'blur']}]"
-                      ></a-input>
-                    </a-form-item>
-                  </div>
-                  <div class="col-12 col-md-12 col-lg-12">
-                    <a-form-item class="form-group">
-                      <a-input
-                        type="text"
-                        class="form-control"
-                        placeholder="Subject"
-                        v-decorator="['subject', {rules: [{ required: true, message: '请输入Subject' }], validateTrigger: ['change', 'blur']}]"
-                      ></a-input>
-                    </a-form-item>
-                  </div>
-                  <div class="col-12 col-md-12 col-lg-12">
-                    <a-form-item class="form-group">
-                      <a-textarea
-                        class="form-control"
-                        placeholder="Massage"
-                        v-decorator="['massage', {rules: [{ required: true, message: '请输入Message' }], validateTrigger: ['change', 'blur']}]"
-                      ></a-textarea>
-                    </a-form-item>
-                  </div>
-                </div>
-                <div class="row">
-                  <div
-                    class="col-12 col-md-12 col-lg-12 d-flex justify-content-between pass_option"
-                  >
-                    <button type="submit" class="btn btn-default login_btn">Send Us</button>
-                    <br>
-                  </div>
-                </div>
-              </a-form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- map location -->
-    <section class="map_location">
-      <div class="container">
-        <div class="footer_top">
-          <div class="row">
-            <div class="col-12 col-md-6 col-lg-6">
-              <div class="contact_location contact_location_left">
-                <h3>Our Office</h3>
-                <p>
-                  Ante amet vitae vulputate odio
-                  <br>nulla vel pretium pulvinar aenean.
-                </p>
-                <ul class="location_info">
-                  <li>
-                    <i class="flaticon-placeholder"></i>113 Sassnex, White House
-                  </li>
-                  <li>
-                    <i class="flaticon-push-pin"></i>New Jercy, USA
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-6">
-              <div class="contact_location contact_location_right">
-                <h3>Contact Us</h3>
-                <p>
-                  Ante amet vitae vulputate odio
-                  <br>nulla vel pretium pulvinar aenean.
-                </p>
-                <ul class="location_info">
-                  <li>
-                    <i class="flaticon-envelope"></i>Sassnex@gmail.com
-                  </li>
-                  <li>
-                    <i class="flaticon-phone-call"></i>+00 985 260
-                  </li>
-                  <li>
-                    <i class="flaticon-global"></i>www.sassnex.com
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- favorite services -->
     <section class="favorite_services">
@@ -534,6 +378,7 @@ import TagSelect from '@/components/TagSelect'
 import { DescriptionList, TagCloud } from '@/components/'
 import commonPageMixin from 'src/mixins/commonPageMixin'
 import API from 'src/api'
+import topBarMenu from 'src/components/top-bar-menu'
 
 const AvatarListItem = AvatarList.AvatarItem
 const TagSelectOption = TagSelect.Option
@@ -553,7 +398,8 @@ export default {
     TagSelectOption,
     TagCloud,
     DescriptionList,
-    DescriptionListItem
+    DescriptionListItem,
+    topBarMenu
   },
   mixins: [commonPageMixin],
 
@@ -569,9 +415,6 @@ export default {
   },
   mounted() {
     // new WOW().init();
-    window.jQuery('.mean_menu').meanmenu({
-      meanScreenWidth: '767'
-    })
 
     // Testimonial Payment
     $('.slider_content').slick({

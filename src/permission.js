@@ -9,7 +9,7 @@ import Cookies from 'js-cookie'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-const whiteList = ['login', 'register', 'registerResult', 'homePage'] // no redirect whitelist
+const whiteList = ['login', 'register', 'registerResult', 'homePage', 'search', 'contact'] // no redirect whitelist
 
 router.beforeEach((to, from, next) => {
   NProgress.start() // start progress bar

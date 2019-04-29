@@ -3,7 +3,7 @@
     <!-- loading加载 -->
     <loader-wrapper></loader-wrapper>
     <!-- 顶部导航栏 -->
-    <top-nav-menu></top-nav-menu>
+    <common-header></common-header>
 
     <!-- Search Box Start Here -->
     <header-search></header-search>
