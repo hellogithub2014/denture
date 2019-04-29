@@ -29,28 +29,28 @@
                 <div class="row">
                   <div class="col-12 col-lg-12 col-md-12 col-lg-12">
                     <a-form-item class="form-group">
-                      <label class="control-label">Name</label>
+                      <label class="control-label">账号</label>
                       <a-input
                         type="text"
                         class="form-control"
-                        placeholder="Username"
-                        v-decorator="['name', {rules: [{ required: true, message: '请输入用户名' }], validateTrigger: ['change', 'blur']}]"
+                        placeholder="账号"
+                        v-decorator="['username', {rules: [{ required: true, message: '请输入用户名' }], validateTrigger: ['change', 'blur']}]"
                       ></a-input>
                     </a-form-item>
                   </div>
                   <div class="col-12 col-lg-12 col-md-12 col-lg-12">
                     <a-form-item class="form-group">
-                      <label class="control-label">User Name</label>
+                      <label class="control-label">{{ isSelectInstitution()?"加工所名称":"姓名" }}</label>
                       <a-input
                         class="form-control"
-                        placeholder="User Name"
-                        v-decorator="['username', {rules: [{ required: true, message: '请输入User Name' }], validateTrigger: ['change', 'blur']}]"
+                        :placeholder="isSelectInstitution()?'加工所名称':'姓名'"
+                        v-decorator="['name', {rules: [{ required: true, message: '请输入姓名' }], validateTrigger: ['change', 'blur']}]"
                       ></a-input>
                     </a-form-item>
                   </div>
                   <div class="col-12 col-lg-12 col-md-12 col-lg-12">
                     <a-form-item class="form-group">
-                      <label class="control-label">Password</label>
+                      <label class="control-label">密码</label>
                       <a-input
                         type="password"
                         class="form-control"
@@ -83,7 +83,7 @@
                     <a-form-item class="form-group">
                       <label class="control-label">注册类型</label>
                       <a-select
-                        style="width: 120px"
+                        class="form-control"
                         v-decorator="['type', {initialValue: userType.customer}]"
                       >
                         <a-select-option :value="userType.institution">加工所</a-select-option>
@@ -122,13 +122,14 @@
                         class="form-control"
                         placeholder="验证码"
                         v-decorator="['captcha', {rules: [{ required: true, message: '请输入验证码' }], validateTrigger: ['change', 'blur']}]"
-                      ></a-input>
-                      <img :src="captureUrl" @click="getCapture">
+                      >
+                        <img slot="suffix" :src="captureUrl" @click="getCapture">
+                      </a-input>
                     </a-form-item>
                   </div>
                 </div>
                 <div class="row">
-                  <div
+                  <!-- <div
                     class="col-12 col-lg-12 col-md-12 col-lg-12 d-flex justify-content-between pass_option"
                   >
                     <div>
@@ -136,7 +137,7 @@
                       <span class="keep_me_login">Keep me Log in</span>
                     </div>
                     <a href title class="forget_pass">Forget Password ?</a>
-                  </div>
+                  </div> -->
                   <div class="col-12 col-lg-12 col-md-12 col-lg-12">
                     <div class="login_option">
                       <button type="submit" class="btn btn-default login_btn">Sign Up</button>
@@ -176,20 +177,23 @@ import _ from 'lodash'
 
 export default {
   mixins: [commonPageMixin],
-  data() {
+  data () {
     return {
       form: this.$form.createForm(this),
       confirmDirty: false
     }
   },
-  mounted() {
-    new WOW().init()
+  mounted () {
+    if (window.WOW) {
+      // eslint-disable-next-line no-undef
+      new WOW().init()
+    }
   },
   methods: {
-    isSelectInstitution() {
+    isSelectInstitution () {
       return this.form.getFieldValue('type') === this.userType.institution
     },
-    handleSubmit(e) {
+    handleSubmit (e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
         if (!err) {
@@ -202,7 +206,7 @@ export default {
         }
       })
     },
-    registe(formData) {
+    registe (formData) {
       this.axios
         .post(API.Register, formData)
         .then(resp => {
@@ -210,19 +214,20 @@ export default {
         })
         .finally(() => this.getCapture())
     },
-    handleConfirmBlur(e) {
+    handleConfirmBlur (e) {
       const value = e.target.value
       this.confirmDirty = this.confirmDirty || !!value
     },
-    compareToFirstPassword(rule, value, callback) {
+    compareToFirstPassword (rule, value, callback) {
       const form = this.form
       if (value && value !== form.getFieldValue('password')) {
+        // eslint-disable-next-line standard/no-callback-literal
         callback('两次密码不一致')
       } else {
         callback()
       }
     },
-    validateToNextPassword(rule, value, callback) {
+    validateToNextPassword (rule, value, callback) {
       const form = this.form
       if (value && this.confirmDirty) {
         form.validateFields(['confirm'], { force: true })

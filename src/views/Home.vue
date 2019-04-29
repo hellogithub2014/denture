@@ -465,17 +465,17 @@ export default {
   },
   mixins: [commonPageMixin],
 
-  data() {
+  data () {
     return {
       targetTime: new Date().getTime() + 3900000,
       tagCloudData: [],
       form: this.$form.createForm(this)
     }
   },
-  created() {
+  created () {
     this.getTagCloudData()
   },
-  mounted() {
+  mounted () {
     // new WOW().init();
 
     // Testimonial Payment
@@ -500,22 +500,22 @@ export default {
     })
   },
   methods: {
-    onEndHandle() {
+    onEndHandle () {
       this.$message.success('CountDown callback!!!')
     },
-    onEndHandle2() {
+    onEndHandle2 () {
       this.$notification.open({
         message: 'Notification Title',
         description:
           'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
       })
     },
-    getTagCloudData() {
+    getTagCloudData () {
       this.$http.get('/data/antv/tag-cloud').then(res => {
         this.tagCloudData = res.result
       })
     },
-    handleSubmit(e) {
+    handleSubmit (e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
         if (!err) {
@@ -523,7 +523,7 @@ export default {
         }
       })
     },
-    sendEmail(formData) {
+    sendEmail (formData) {
       this.axios.post(API.sendEmail, formData).then(resp => {
         this.$messgae.success('发送成功')
       })

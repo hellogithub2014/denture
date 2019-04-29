@@ -27,51 +27,24 @@
           <div class="modal-body">
             <div class="bar-nav">
               <div class="bar-top">
-                <h2>Sassnex Pages</h2>
+                <h2>Quick Pages</h2>
                 <ul>
-                  <li>
-                    <a href="index.html">App Landing</a>
+                  <li class="nav-item">
+                    <a href="/dashboard/workplace" class="nav-link">Home</a>
                   </li>
-                  <li>
-                    <a href="product-landing.html">Product Landing</a>
+                  <li class="nav-item">
+                    <a href="/search" class="nav-link">Search</a>
                   </li>
-                  <li>
-                    <a href="startup-agency.html">Startup Agency</a>
-                  </li>
-                  <li>
-                    <a href="payment-page.html">Payment Processing</a>
-                  </li>
-                  <li>
-                    <a href="marketing.html">Digital Marketing</a>
-                  </li>
-                  <li>
-                    <a href="sass-landing.html">Sass Landing</a>
-                  </li>
-                  <li>
-                    <a href="about.html">About Us</a>
-                  </li>
-                  <li>
-                    <a href="pricing-table.html">Pricing table Page</a>
-                  </li>
-                  <li>
-                    <a href="shop-page.html">Shop Page</a>
-                  </li>
-                  <li>
-                    <a href="blog.html">Blog</a>
-                  </li>
-                  <li>
-                    <a href="sign-in.html">Sign In</a>
-                  </li>
-                  <li>
-                    <a href="contact.html">Contact</a>
+                  <li class="nav-item">
+                    <a href="/contact" class="nav-link">Contact</a>
                   </li>
                 </ul>
               </div>
             </div>
             <div class="bar-contact">
               <span>Contact</span>
-              <span>+44 7700 900077</span>
-              <span>support@sassnex.com</span>
+              <span>+86 18089244078</span>
+              <span>service@moxiaonai.cn</span>
             </div>
 
             <div class="bar-icon">
@@ -119,7 +92,7 @@
 
 <script>
 export default {
-  name: 'side-bar-menu'
+  name: 'SideBarMenu'
 }
 </script>
 
