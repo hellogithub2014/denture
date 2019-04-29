@@ -569,6 +569,9 @@ export default {
   },
   mounted() {
     // new WOW().init();
+    window.jQuery('.mean_menu').meanmenu({
+      meanScreenWidth: '767'
+    })
 
     // Testimonial Payment
     $('.slider_content').slick({
