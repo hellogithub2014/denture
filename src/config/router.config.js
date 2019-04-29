@@ -341,26 +341,24 @@ export const constantRouterMap = [
     hidden: true,
     children: [
       {
-        path: '/login',
+        path: 'home',
+        name: 'homePage',
+        component: () => import('@/views/Home')
+      },
+      {
+        path: 'login',
         name: 'login',
-        // component: () => import(/* webpackChunkName: "user" */ '@/views/user/Login')
         component: () => import('@/views/Login')
       },
       {
-        path: '/register',
+        path: 'register',
         name: 'register',
-        // component: () => import(/* webpackChunkName: "user" */ '@/views/user/Register')
         component: () => import('@/views/Register')
       },
       {
-        path: '/register-result',
+        path: 'register-result',
         name: 'registerResult',
         component: () => import(/* webpackChunkName: "user" */ '@/views/user/RegisterResult')
-      },
-      {
-        path: '/home',
-        name: 'homePage',
-        component: () => import('@/views/Home')
       }
     ]
   },

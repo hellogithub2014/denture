@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- dom结构不一致，没有复用 top-nav-menu.vue -->
     <header id="payment" class>
       <div class="header-top">
         <div class="sassnex_nav">
@@ -65,7 +66,7 @@
                   data-wow-delay=".3s"
                   style="visibility: visible; animation-duration: 2s; animation-delay: 0.3s; animation-name: fadeInUp;"
                 >
-                  <a href="#" class="nav-link active">Sign Up</a>
+                  <a href="/register" class="nav-link active">Sign Up</a>
                   <a href="#" class="nav-link">Find Out More</a>
                 </div>
               </div>

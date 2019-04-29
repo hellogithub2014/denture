@@ -18,7 +18,7 @@ router.beforeEach((to, from, next) => {
   const cookies = Cookies.get()
   if (cookies['SESSION_ID']) {
     if (to.name === 'login' || to.name === 'register') {
-      next({ path: '/dashboard/workplace' })
+      next({ name: 'Workplace' })
       NProgress.done()
     } else {
       if (store.getters.roles.length === 0) {
@@ -47,7 +47,7 @@ router.beforeEach((to, from, next) => {
             })
             // TODO: 取消注释
             store.dispatch('Logout').then(() => {
-              next({ path: '/user/login', query: { redirect: to.fullPath } })
+              next({ path: '/login', query: { redirect: to.fullPath } })
             })
           })
       } else {
