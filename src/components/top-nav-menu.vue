@@ -13,7 +13,8 @@
                   <a href="#" class="nav-link">Home</a>
                   <ul class="dropdown_menu">
                     <li>
-                      <a href="/dashboard/workplace">WorkSpace</a>
+                      <router-link :to="{name: 'Workplace'}" class="forget_pass">WorkSpace</router-link>
+                      <!-- <a href="/dashboard/workplace">WorkSpace</a> -->
                     </li>
                     <li>
                       <a href="product-landing.html">Product Landing</a>

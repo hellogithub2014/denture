@@ -75,6 +75,7 @@ import SideMenu from '@/components/Menu/SideMenu'
 import GlobalHeader from '@/components/GlobalHeader'
 import GlobalFooter from '@/components/GlobalFooter'
 import SettingDrawer from '@/components/SettingDrawer'
+import { ASYNC_PATH_PREFIX } from 'src/config/router.config'
 
 export default {
   name: 'BasicLayout',
@@ -115,7 +116,7 @@ export default {
     }
   },
   created() {
-    this.menus = this.mainMenu.find(item => item.path === '/').children
+    this.menus = this.mainMenu.find(item => item.path === ASYNC_PATH_PREFIX).children
     this.collapsed = !this.sidebarOpened
   },
   mounted() {
