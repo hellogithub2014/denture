@@ -75,25 +75,19 @@
     >
       <span slot="serial" slot-scope="text, record, index">{{ index + 1 }}</span>
     </s-table>
-    <create-form ref="createModal" @ok="handleOk"/>
-    <step-by-step-modal ref="modal" @ok="handleOk"/>
   </a-card>
 </template>
 
 <script>
 import moment from 'moment'
 import { STable } from '@/components'
-import StepByStepModal from './modules/StepByStepModal'
-import CreateForm from './modules/CreateForm'
 import { getRoleList } from '@/api/manage'
 import API from 'src/api'
 
 export default {
   name: 'TableList',
   components: {
-    STable,
-    CreateForm,
-    StepByStepModal
+    STable
   },
   data() {
     return {
