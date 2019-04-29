@@ -13,6 +13,7 @@ import Trend from '@/components/Trend'
 import STable from '@/components/Table'
 import MultiTab from '@/components/MultiTab'
 import TagSelect from '@/components/TagSelect'
+import ExceptionPage from '@/components/Exception'
 
 export {
   AvatarList,
@@ -21,6 +22,7 @@ export {
   DescriptionList,
   DescriptionList as DetailList,
   Ellipsis,
+  ExceptionPage,
   MultiTab,
   NumberInfo,
   Radar,
