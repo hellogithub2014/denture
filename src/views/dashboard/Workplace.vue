@@ -1,32 +1,68 @@
 
 <template>
   <page-view :avatar="avatar" :title="false">
-    <div slot="headerContent">
+    <a-card :bordered="false">
+      <detail-list title="账户信息">
+        <detail-list-item term="用户名">{{ userInfo.username }}</detail-list-item>
+        <detail-list-item term="姓名">{{ userInfo.name }}</detail-list-item>
+        <detail-list-item term="电话">{{ userInfo.telephone }}</detail-list-item>
+      </detail-list>
+    </a-card>
+    <a-card style="margin-top:20px;">
       <a-row :gutter="24">
-        <a-col :span="8">
-          <head-info title="姓名" :content="userInfo.name" :center="false"/>
+        <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
+          <chart-card :loading="loading" title="总注册人数" total="126,560">
+            <a-tooltip title="指标说明" slot="action">
+              <a-icon type="info-circle-o" />
+            </a-tooltip>
+            <div>
+              <trend flag="up" style="margin-right: 16px;">
+                <span slot="term">周同比</span>
+                12%
+              </trend>
+              <trend flag="down">
+                <span slot="term">日同比</span>
+                11%
+              </trend>
+            </div>
+            <template slot="footer">日均增长<span>234</span></template>
+          </chart-card>
         </a-col>
-        <a-col :span="8">
-          <head-info title="电话" :content="userInfo.telephone" :center="false"/>
+        <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
+          <chart-card :loading="loading" title="访问量" :total="8846 | NumberFormat">
+            <a-tooltip title="指标说明" slot="action">
+              <a-icon type="info-circle-o" />
+            </a-tooltip>
+            <div>
+              <mini-area />
+            </div>
+            <template slot="footer">日访问量<span> {{ '1234' | NumberFormat }}</span></template>
+          </chart-card>
         </a-col>
-        <a-col :span="8">
-          <head-info title="用户名" :content="userInfo.username" :center="false"/>
+        <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
+          <chart-card :loading="loading" title="义齿记录" :total="65460 | NumberFormat">
+            <a-tooltip title="指标说明" slot="action">
+              <a-icon type="info-circle-o" />
+            </a-tooltip>
+            <div>
+              <mini-bar />
+            </div>
+            <template slot="footer">日均增长<span>1334</span></template>
+          </chart-card>
+        </a-col>
+        <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
+          <chart-card :loading="loading" title="反馈记录" total="3432">
+            <a-tooltip title="指标说明" slot="action">
+              <a-icon type="info-circle-o" />
+            </a-tooltip>
+            <div>
+              <mini-area />
+            </div>
+            <template slot="footer">日访问量<span> {{ '1234' | NumberFormat }}</span></template>
+          </chart-card>
         </a-col>
       </a-row>
-    </div>
-    <div slot="extra">
-      <a-row class="more-info">
-        <a-col :span="8">
-          <head-info title="项目数" content="56" :center="false" :bordered="false"/>
-        </a-col>
-        <a-col :span="8">
-          <head-info title="团队排名" content="8/24" :center="false" :bordered="false"/>
-        </a-col>
-        <a-col :span="8">
-          <head-info title="项目访问" content="2,223" :center="false"/>
-        </a-col>
-      </a-row>
-    </div>
+    </a-card>
   </page-view>
 </template>
 
@@ -36,10 +72,11 @@ import { mapGetters } from 'vuex'
 
 import { PageView } from '@/layouts'
 import HeadInfo from '@/components/tools/HeadInfo'
-import { Radar } from '@/components'
-import API from 'src/api'
+import { Radar, ChartCard, Trend, MiniArea, MiniBar, MiniProgress } from '@/components'
+import DetailList from '@/components/tools/DetailList'
 
 import { getRoleList, getServiceList } from '@/api/manage'
+const DetailListItem = DetailList.Item
 
 const DataSet = require('@antv/data-set')
 
@@ -48,9 +85,16 @@ export default {
   components: {
     PageView,
     HeadInfo,
-    Radar
+    Radar,
+    ChartCard,
+    Trend,
+    MiniArea,
+    MiniBar,
+    MiniProgress,
+    DetailList,
+    DetailListItem
   },
-  data() {
+  data () {
     return {
       timeFix: timeFix(),
       avatar: '',
@@ -104,11 +148,11 @@ export default {
     }
   },
   computed: {
-    userInfo() {
+    userInfo () {
       return this.$store.getters.userInfo
     }
   },
-  created() {
+  created () {
     this.user = this.userInfo
     this.avatar = this.userInfo.avatar
 
@@ -120,7 +164,7 @@ export default {
       console.log('workplace -> call getServiceList()', res)
     })
   },
-  mounted() {
+  mounted () {
     this.getProjects()
     this.getActivity()
     this.getTeams()
@@ -128,23 +172,23 @@ export default {
   },
   methods: {
     ...mapGetters(['nickname', 'welcome']),
-    getProjects() {
+    getProjects () {
       this.$http.get('/list/search/projects').then(res => {
         this.projects = res.result && res.result.data
         this.loading = false
       })
     },
-    getActivity() {
+    getActivity () {
       this.$http.get('/workplace/activity').then(res => {
         this.activities = res.result
       })
     },
-    getTeams() {
+    getTeams () {
       this.$http.get('/workplace/teams').then(res => {
         this.teams = res.result
       })
     },
-    initRadar() {
+    initRadar () {
       this.radarLoading = true
 
       this.$http.get('/workplace/radar').then(res => {

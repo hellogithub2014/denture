@@ -17,6 +17,12 @@
               <li class="nav-item">
                 <a href="/contact" class="nav-link">Contact</a>
               </li>
+              <li class="nav-item" v-if="!isLogin">
+                <a href="/login" class="nav-link">Sign Up</a>
+              </li>
+              <li class="nav-item" v-else>
+                <a href="/manage/dashboard/workplace" class="nav-link">Manager</a>
+              </li>
             </ul>
           </div>
           <div class="mr-auto others_option">
@@ -42,9 +48,17 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
+
 export default {
-  name: 'top-bar-menu',
-  mounted() {
+  name: 'TopBarMenu',
+  computed: {
+    isLogin () {
+      const cookies = Cookies.get()
+      return !!cookies['SESSION_ID']
+    }
+  },
+  mounted () {
     window.jQuery('.mean_menu').meanmenu({
       meanScreenWidth: '767'
     })

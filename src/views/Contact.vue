@@ -3,14 +3,9 @@
     <!-- loading加载 -->
     <loader-wrapper></loader-wrapper>
     <!-- 顶部导航栏 -->
-    <common-header></common-header>
-
-    <!-- Search Box Start Here -->
-    <header-search></header-search>
-
+    <common-header :page="'Contact'"></common-header>
     <!-- 侧边工具栏 -->
     <side-bar-menu></side-bar-menu>
-
     <!-- contact page -->
     <section class="contact_page">
       <div class="container">
@@ -60,8 +55,8 @@
                     <a-form-item class="form-group">
                       <a-textarea
                         class="form-control"
-                        placeholder="Massage"
-                        v-decorator="['massage', {rules: [{ required: true, message: '请输入Message' }], validateTrigger: ['change', 'blur']}]"
+                        placeholder="Message"
+                        v-decorator="['message', {rules: [{ required: true, message: '请输入Message' }], validateTrigger: ['change', 'blur']}]"
                       ></a-textarea>
                     </a-form-item>
                   </div>
@@ -95,10 +90,10 @@
                 </p>
                 <ul class="location_info">
                   <li>
-                    <i class="flaticon-placeholder"></i>113 Sassnex, White House
+                    <i class="flaticon-placeholder"></i>ZHICHUNLI, HAIDIAN
                   </li>
                   <li>
-                    <i class="flaticon-push-pin"></i>New Jercy, USA
+                    <i class="flaticon-push-pin"></i>Beijing, China
                   </li>
                 </ul>
               </div>
@@ -112,13 +107,13 @@
                 </p>
                 <ul class="location_info">
                   <li>
-                    <i class="flaticon-envelope"></i>Sassnex@gmail.com
+                    <i class="flaticon-envelope"></i>admin@moxiaonai.cn
                   </li>
                   <li>
-                    <i class="flaticon-phone-call"></i>+00 985 260
+                    <i class="flaticon-phone-call"></i>+86 18089244078
                   </li>
                   <li>
-                    <i class="flaticon-global"></i>www.sassnex.com
+                    <i class="flaticon-global"></i>yichi.fenewbee.com
                   </li>
                 </ul>
               </div>
@@ -173,19 +168,17 @@ export default {
   },
   mixins: [commonPageMixin],
 
-  data() {
+  data () {
     return {
       targetTime: new Date().getTime() + 3900000,
       tagCloudData: [],
       form: this.$form.createForm(this)
     }
   },
-  created() {
+  created () {
     this.getTagCloudData()
   },
-  mounted() {
-    // new WOW().init();
-
+  mounted () {
     // Testimonial Payment
     $('.slider_content').slick({
       slidesToShow: 1,
@@ -208,22 +201,22 @@ export default {
     })
   },
   methods: {
-    onEndHandle() {
+    onEndHandle () {
       this.$message.success('CountDown callback!!!')
     },
-    onEndHandle2() {
+    onEndHandle2 () {
       this.$notification.open({
         message: 'Notification Title',
         description:
           'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
       })
     },
-    getTagCloudData() {
+    getTagCloudData () {
       this.$http.get('/data/antv/tag-cloud').then(res => {
         this.tagCloudData = res.result
       })
     },
-    handleSubmit(e) {
+    handleSubmit (e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
         if (!err) {
@@ -231,9 +224,10 @@ export default {
         }
       })
     },
-    sendEmail(formData) {
+    sendEmail (formData) {
       this.axios.post(API.sendEmail, formData).then(resp => {
-        this.$messgae.success('发送成功')
+        this.$message.success('发送成功')
+        this.form.resetFields()
       })
     }
   }

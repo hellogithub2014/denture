@@ -4,10 +4,7 @@
     <loader-wrapper></loader-wrapper>
 
     <!-- 顶部导航栏 -->
-    <common-header></common-header>
-
-    <!-- Search Box Start Here -->
-    <header-search></header-search>
+    <common-header :page="'Rigister'"></common-header>
 
     <!-- 侧边工具栏 -->
     <side-bar-menu></side-bar-menu>
@@ -177,23 +174,19 @@ import _ from 'lodash'
 
 export default {
   mixins: [commonPageMixin],
-  data() {
+  data () {
     return {
       form: this.$form.createForm(this),
       confirmDirty: false
     }
   },
-  mounted() {
-    if (window.WOW) {
-      // eslint-disable-next-line no-undef
-      new WOW().init()
-    }
+  mounted () {
   },
   methods: {
-    isSelectInstitution() {
+    isSelectInstitution () {
       return this.form.getFieldValue('type') === this.userType.institution
     },
-    handleSubmit(e) {
+    handleSubmit (e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
         if (!err) {
@@ -206,7 +199,7 @@ export default {
         }
       })
     },
-    registe(formData) {
+    registe (formData) {
       this.axios
         .post(API.Register, formData)
         .then(resp => {
@@ -214,11 +207,11 @@ export default {
         })
         .finally(() => this.getCapture())
     },
-    handleConfirmBlur(e) {
+    handleConfirmBlur (e) {
       const value = e.target.value
       this.confirmDirty = this.confirmDirty || !!value
     },
-    compareToFirstPassword(rule, value, callback) {
+    compareToFirstPassword (rule, value, callback) {
       const form = this.form
       if (value && value !== form.getFieldValue('password')) {
         // eslint-disable-next-line standard/no-callback-literal
@@ -227,7 +220,7 @@ export default {
         callback()
       }
     },
-    validateToNextPassword(rule, value, callback) {
+    validateToNextPassword (rule, value, callback) {
       const form = this.form
       if (value && this.confirmDirty) {
         form.validateFields(['confirm'], { force: true })

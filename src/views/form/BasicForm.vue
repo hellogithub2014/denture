@@ -98,7 +98,10 @@
         :labelCol="{lg: {span: 7}, sm: {span: 7}}"
         :wrapperCol="{lg: {span: 10}, sm: {span: 17} }"
       >
-        <a-textarea rows="4" placeholder="备注，选填" v-decorator="[
+        <a-textarea
+          rows="4"
+          placeholder="备注，选填"
+          v-decorator="[
             'remark',
           ]"/>
       </a-form-item>
@@ -116,7 +119,7 @@ import API from 'src/api'
 
 export default {
   name: 'BaseForm',
-  data() {
+  data () {
     return {
       // form
       form: this.$form.createForm(this)
@@ -124,7 +127,7 @@ export default {
   },
   methods: {
     // handler
-    handleSubmit(e) {
+    handleSubmit (e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
         if (!err) {
@@ -132,7 +135,7 @@ export default {
         }
       })
     },
-    addProduct(formData) {
+    addProduct (formData) {
       this.axios.post(API.product, formData).then(resp => {
         // 跳转到加工所查询列表
         this.$router.push({ name: 'TableListWrapper' })

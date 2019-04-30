@@ -689,7 +689,7 @@ a .btn_icon_2,
 }
 
 .sidebar_menu .modal-header h2 img {
-  height: 28px;
+  height: 55px;
 }
 
 .sidebar_menu button:focus {
@@ -913,7 +913,7 @@ header .sassnex_nav nav {
 }
 
 header .sassnex_nav nav .navbar-brand img {
-  height: 26px;
+  height: 55px;
   width: auto;
 }
 
@@ -6024,13 +6024,14 @@ footer .footer_bottom ul li a {
 
 /*===================[ Inner Header Style]=======================*/
 .header_inner_pages {
-  background: #5580FF;
+  background: url(../images/banner/shop_bg.png) #5580FF;
+  /* background: #5580FF; */
   position: relative;
   min-height: 300px;
 }
 
 .header_inner_pages:before {
-  background: url(../images/shapes/inner_bg_shapes.png);
+  /* background: url(../images/shapes/inner_bg_shapes.png); */
   content: "";
   position: absolute;
   top: 0;

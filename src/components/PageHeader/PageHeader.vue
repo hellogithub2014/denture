@@ -56,7 +56,7 @@ export default {
       required: false
     }
   },
-  data() {
+  data () {
     return {}
   }
 }

@@ -28,7 +28,7 @@
                   style="visibility: visible; animation-duration: 2s; animation-delay: 0.3s; animation-name: fadeInUp;"
                 >
                   <a href="/register" class="nav-link active">Sign Up</a>
-                  <a href="#" class="nav-link">Find Out More</a>
+                  <a href="/search" class="nav-link">Quick Search</a>
                 </div>
               </div>
             </div>
@@ -58,9 +58,6 @@
         <img src="../assets/images/shapes/payment_t_3.png" alt class="agency_9">
       </div>
     </header>
-
-    <!-- Search Box Start Here -->
-    <header-search></header-search>
 
     <!-- 侧边工具栏 -->
     <side-bar-menu></side-bar-menu>
@@ -403,19 +400,17 @@ export default {
   },
   mixins: [commonPageMixin],
 
-  data() {
+  data () {
     return {
       targetTime: new Date().getTime() + 3900000,
       tagCloudData: [],
       form: this.$form.createForm(this)
     }
   },
-  created() {
+  created () {
     this.getTagCloudData()
   },
-  mounted() {
-    // new WOW().init();
-
+  mounted () {
     // Testimonial Payment
     $('.slider_content').slick({
       slidesToShow: 1,
@@ -438,22 +433,22 @@ export default {
     })
   },
   methods: {
-    onEndHandle() {
+    onEndHandle () {
       this.$message.success('CountDown callback!!!')
     },
-    onEndHandle2() {
+    onEndHandle2 () {
       this.$notification.open({
         message: 'Notification Title',
         description:
           'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
       })
     },
-    getTagCloudData() {
+    getTagCloudData () {
       this.$http.get('/data/antv/tag-cloud').then(res => {
         this.tagCloudData = res.result
       })
     },
-    handleSubmit(e) {
+    handleSubmit (e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
         if (!err) {
@@ -461,7 +456,7 @@ export default {
         }
       })
     },
-    sendEmail(formData) {
+    sendEmail (formData) {
       this.axios.post(API.sendEmail, formData).then(resp => {
         this.$messgae.success('发送成功')
       })

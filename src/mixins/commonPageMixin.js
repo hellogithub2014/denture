@@ -2,7 +2,6 @@ import sideBarMenu from 'src/components/side-bar-menu'
 import commonHeader from 'src/components/common-header'
 import scrollTopIcon from 'src/components/scroll-top-icon'
 import commonFooter from 'src/components/common-footer'
-import headerSearch from 'src/components/header-search'
 import loaderWrapper from 'src/components/loader-wrapper'
 
 import { userType } from 'src/const/user-type'
@@ -14,7 +13,6 @@ export default {
     commonHeader,
     scrollTopIcon,
     commonFooter,
-    headerSearch,
     loaderWrapper
   },
   data () {

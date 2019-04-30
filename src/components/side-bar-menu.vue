@@ -30,13 +30,19 @@
                 <h2>Quick Pages</h2>
                 <ul>
                   <li class="nav-item">
-                    <a href="/manage/dashboard/workplace" class="nav-link">Home</a>
+                    <a href="/" class="nav-link">Home</a>
                   </li>
                   <li class="nav-item">
                     <a href="/search" class="nav-link">Search</a>
                   </li>
                   <li class="nav-item">
                     <a href="/contact" class="nav-link">Contact</a>
+                  </li>
+                  <li class="nav-item" v-if="!isLogin">
+                    <a href="/login" class="nav-link">Sign Up</a>
+                  </li>
+                  <li class="nav-item" v-else>
+                    <a href="/manage/dashboard/workplace" class="nav-link">Manager</a>
                   </li>
                 </ul>
               </div>
@@ -91,8 +97,16 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
+
 export default {
-  name: 'SideBarMenu'
+  name: 'SideBarMenu',
+  computed: {
+    isLogin () {
+      const cookies = Cookies.get()
+      return !!cookies['SESSION_ID']
+    }
+  }
 }
 </script>
 

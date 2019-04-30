@@ -4,60 +4,44 @@
       <a-form layout="inline">
         <a-row :gutter="48">
           <a-col :md="8" :sm="24">
-            <a-form-item label="规则编号">
-              <a-input v-model="queryParam.id" placeholder/>
+            <a-form-item
+              label="加工所名称"
+              :label-col="formItemLayout.labelCol"
+              :wrapper-col="formItemLayout.wrapperCol">
+              <a-input v-model="queryParam.factory_name" placeholder/>
             </a-form-item>
           </a-col>
           <a-col :md="8" :sm="24">
-            <a-form-item label="使用状态">
-              <a-select v-model="queryParam.status" placeholder="请选择" default-value="0">
-                <a-select-option value="0">全部</a-select-option>
-                <a-select-option value="1">关闭</a-select-option>
-                <a-select-option value="2">运行中</a-select-option>
-              </a-select>
+            <a-form-item
+              label="原材料ID"
+              :label-col="formItemLayout.labelCol"
+              :wrapper-col="formItemLayout.wrapperCol">
+              <a-input v-model="queryParam.stuff_id" placeholder/>
             </a-form-item>
           </a-col>
-          <template v-if="advanced">
-            <a-col :md="8" :sm="24">
-              <a-form-item label="调用次数">
-                <a-input-number v-model="queryParam.callNo" style="width: 100%"/>
-              </a-form-item>
-            </a-col>
-            <a-col :md="8" :sm="24">
-              <a-form-item label="更新日期">
-                <a-date-picker v-model="queryParam.date" style="width: 100%" placeholder="请输入更新日期"/>
-              </a-form-item>
-            </a-col>
-            <a-col :md="8" :sm="24">
-              <a-form-item label="使用状态">
-                <a-select v-model="queryParam.useStatus" placeholder="请选择" default-value="0">
-                  <a-select-option value="0">全部</a-select-option>
-                  <a-select-option value="1">关闭</a-select-option>
-                  <a-select-option value="2">运行中</a-select-option>
-                </a-select>
-              </a-form-item>
-            </a-col>
-            <a-col :md="8" :sm="24">
-              <a-form-item label="使用状态">
-                <a-select placeholder="请选择" default-value="0">
-                  <a-select-option value="0">全部</a-select-option>
-                  <a-select-option value="1">关闭</a-select-option>
-                  <a-select-option value="2">运行中</a-select-option>
-                </a-select>
-              </a-form-item>
-            </a-col>
-          </template>
-          <a-col :md="!advanced && 8 || 24" :sm="24">
+          <a-col :md="8" :sm="24">
+            <a-form-item
+              label="义齿ID(追溯码)"
+              :label-col="formItemLayout.labelCol"
+              :wrapper-col="formItemLayout.wrapperCol">
+              <a-input v-model="queryParam.product_id" placeholder/>
+            </a-form-item>
+          </a-col>
+          <a-col :md="8" :sm="24">
+            <a-form-item
+              label="用户名称"
+              :label-col="formItemLayout.labelCol"
+              :wrapper-col="formItemLayout.wrapperCol">
+              <a-input v-model="queryParam.username" placeholder/>
+            </a-form-item>
+          </a-col>
+          <a-col :md="8" :sm="24" :offset="8">
             <span
               class="table-page-search-submitButtons"
-              :style="advanced && { float: 'right', overflow: 'hidden' } || {} "
+              :style="{float: 'right', overflow: 'hidden' }"
             >
               <a-button type="primary" @click="$refs.table.refresh(true)">查询</a-button>
               <a-button style="margin-left: 8px" @click="() => queryParam = {}">重置</a-button>
-              <a @click="toggleAdvanced" style="margin-left: 8px">
-                {{ advanced ? '收起' : '展开' }}
-                <a-icon :type="advanced ? 'up' : 'down'"/>
-              </a>
             </span>
           </a-col>
         </a-row>
@@ -68,15 +52,13 @@
       ref="table"
       size="default"
       rowKey="id"
+      :scroll="{ x: 1500 }"
       :columns="columns"
       :data="loadData"
-      :alert="options.alert"
-      :rowSelection="options.rowSelection"
     >
-      <span slot="serial" slot-scope="text, record, index">{{ index + 1 }}</span>
+      <a-button slot="operation" type="primary" size="small">编辑</a-button>
+      <a-button slot="operation" style="margin-left:5px;" type="danger" size="small">删除</a-button>
     </s-table>
-    <create-form ref="createModal" @ok="handleOk"/>
-    <step-by-step-modal ref="modal" @ok="handleOk"/>
   </a-card>
 </template>
 
@@ -85,7 +67,7 @@ import moment from 'moment'
 import { STable } from '@/components'
 import StepByStepModal from './modules/StepByStepModal'
 import CreateForm from './modules/CreateForm'
-import { getRoleList, getServiceList } from '@/api/manage'
+import { getRoleList } from '@/api/manage'
 import API from 'src/api'
 
 export default {
@@ -95,90 +77,111 @@ export default {
     CreateForm,
     StepByStepModal
   },
-  data() {
+  data () {
     return {
-      mdl: {},
-      // 高级搜索 展开/关闭
-      advanced: false,
+      formItemLayout: {
+        labelCol: { span: 8 },
+        wrapperCol: { span: 16 }
+      },
       // 查询参数
       queryParam: {},
       // 表头
       columns: [
         {
+          title: '序号',
+          customRender: (text, record, index) => `${index + 1}`,
+          width: 80
+        },
+        {
           title: 'ID',
-          dataIndex: 'id'
+          dataIndex: 'id',
+          width: 80
         },
         {
           title: '用户ID',
-          dataIndex: 'user_id'
+          dataIndex: 'user_id',
+          width: 80
         },
         {
           title: '材料ID',
-          dataIndex: 'stuff_id'
+          dataIndex: 'stuff_id',
+          width: 80
         },
         {
           title: '义齿ID',
-          dataIndex: 'product_id'
+          dataIndex: 'product_id',
+          width: 80
         },
         {
           title: '用户名称',
-          dataIndex: 'username'
+          dataIndex: 'username',
+          width: 100
         },
         {
           title: '材料名称',
-          dataIndex: 'name'
+          dataIndex: 'name',
+          width: 100
         },
         {
           title: '注册证号',
-          dataIndex: 'certificate_no'
+          dataIndex: 'certificate_no',
+          width: 100
         },
         {
           title: '生产批号',
-          dataIndex: 'produce_no'
+          dataIndex: 'produce_no',
+          width: 100
         },
         {
           title: '操作员',
-          dataIndex: 'operator'
+          dataIndex: 'operator',
+          width: 80
         },
         {
           title: '备注',
-          dataIndex: 'remark'
+          dataIndex: 'remark',
+          width: 100
         },
         {
           title: '创建时间',
-          dataIndex: 'create_time'
+          dataIndex: 'create_time',
+          width: 100
+        },
+        {
+          title: 'Action',
+          dataIndex: 'operation',
+          width: 150,
+          align: 'center',
+          fixed: 'right',
+          key: 'operation',
+          scopedSlots: { customRender: 'operation' }
         }
       ],
       // 加载数据方法 必须为 Promise 对象
-      loadData: parameter => this.getProductList(Object.assign(parameter, this.queryParam)),
-      selectedRowKeys: [],
-      selectedRows: [],
-
-      // custom table alert & rowSelection
-      options: {
-        alert: {
-          show: true,
-          clear: () => {
-            this.selectedRowKeys = []
-          }
-        },
-        rowSelection: {
-          selectedRowKeys: this.selectedRowKeys,
-          onChange: this.onSelectChange
-        }
-      },
-      optionAlertShow: false
+      loadData: parameter => this.getProductList(Object.assign(parameter, this.queryParam))
     }
   },
-  created() {
-    this.tableOption()
+  created () {
     getRoleList({ t: new Date() })
   },
   methods: {
-    getProductList(params) {
+    getProductList (params) {
+      const obj = Object.assign({}, params)
+      delete obj.pageNo
+      delete obj.pageSize
+      for (const key in obj) {
+        if (!obj[key]) {
+          delete obj[key]
+        }
+      }
+      if (JSON.stringify(obj) === '{}') {
+        this.$message.error('请输入查询参数')
+        return
+      }
       return this.axios
-        .get(API.product, {
+        .get(API.memberList, {
           params: {
+            ...obj,
             page: params.pageNo,
             size: params.pageSize
           }
@@ -193,52 +196,7 @@ export default {
           }
         })
     },
-    tableOption() {
-      if (!this.optionAlertShow) {
-        this.options = {
-          alert: {
-            show: true,
-            clear: () => {
-              this.selectedRowKeys = []
-            }
-          },
-          rowSelection: {
-            selectedRowKeys: this.selectedRowKeys,
-            onChange: this.onSelectChange
-          }
-        }
-        this.optionAlertShow = true
-      } else {
-        this.options = {
-          alert: false,
-          rowSelection: null
-        }
-        this.optionAlertShow = false
-      }
-    },
-
-    handleEdit(record) {
-      console.log(record)
-      this.$refs.modal.edit(record)
-    },
-    handleSub(record) {
-      if (record.status !== 0) {
-        this.$message.info(`${record.no} 订阅成功`)
-      } else {
-        this.$message.error(`${record.no} 订阅失败，规则已关闭`)
-      }
-    },
-    handleOk() {
-      this.$refs.table.refresh()
-    },
-    onSelectChange(selectedRowKeys, selectedRows) {
-      this.selectedRowKeys = selectedRowKeys
-      this.selectedRows = selectedRows
-    },
-    toggleAdvanced() {
-      this.advanced = !this.advanced
-    },
-    resetSearchForm() {
+    resetSearchForm () {
       this.queryParam = {
         date: moment(new Date())
       }

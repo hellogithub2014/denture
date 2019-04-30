@@ -9,6 +9,7 @@
 <script>
 import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
 import { AppDeviceEnquire } from '@/utils/mixin'
+import { WOW } from 'wowjs'
 
 export default {
   mixins: [AppDeviceEnquire],
@@ -18,7 +19,14 @@ export default {
     }
   },
   mounted () {
-
+    var wow = new WOW({
+      live: false,
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 0,
+      mobile: true
+    })
+    wow.init()
   }
 }
 </script>

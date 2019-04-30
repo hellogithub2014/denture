@@ -11,10 +11,10 @@
 
 <script>
 export default {
-  name: 'scroll-top-icon',
-  mounted() {
+  name: 'ScrollTopIcon',
+  mounted () {
     //= ========== Scroll to top
-    jQuery('.to-top').on('click', function(event) {
+    jQuery('.to-top').on('click', function (event) {
       jQuery('html,body').animate(
         {
           scrollTop: 0
@@ -22,7 +22,7 @@ export default {
         1000
       )
     })
-    jQuery(window).scroll(function() {
+    jQuery(window).scroll(function () {
       if (jQuery(window).scrollTop() > 100) {
         jQuery('.to-top').fadeIn(1000)
       } else {

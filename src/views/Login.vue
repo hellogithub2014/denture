@@ -3,10 +3,7 @@
     <!-- loading加载 -->
     <loader-wrapper></loader-wrapper>
     <!-- 顶部导航栏 -->
-    <common-header></common-header>
-
-    <!-- Search Box Start Here -->
-    <header-search></header-search>
+    <common-header :page="'Login'"></common-header>
 
     <!-- 侧边工具栏 -->
     <side-bar-menu></side-bar-menu>
@@ -103,23 +100,21 @@
 </template>
 
 <script>
-import API from 'src/api'
 import commonPageMixin from 'src/mixins/commonPageMixin'
 import { mapActions } from 'vuex'
 
 export default {
   mixins: [commonPageMixin],
-  data() {
+  data () {
     return {
       form: this.$form.createForm(this)
     }
   },
-  mounted() {
-    new WOW().init()
+  mounted () {
   },
   methods: {
     ...mapActions(['Login', 'Logout']),
-    handleSubmit(e) {
+    handleSubmit (e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
         if (!err) {

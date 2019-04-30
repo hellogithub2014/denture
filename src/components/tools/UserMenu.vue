@@ -1,35 +1,13 @@
 <template>
   <div class="user-wrapper">
     <div class="content-box">
-      <!-- <a href="https://pro.loacg.com/docs/getting-started" target="_blank">
-        <span class="action">
-          <a-icon type="question-circle-o"></a-icon>
-        </span>
-      </a>-->
-      <!-- <notice-icon class="action"/> -->
       <a-dropdown>
         <span class="action ant-dropdown-link user-dropdown-menu">
           <!-- <a-avatar class="avatar" size="small" :src="avatar()"/> -->
+          <span class="manager-avatar" :style="'background:'+iconBg">{{ avatarTxt }}</span>
           <span>{{ nickname() }}</span>
         </span>
         <a-menu slot="overlay" class="user-dropdown-menu-wrapper">
-          <!-- <a-menu-item key="0">
-            <router-link :to="{ name: 'center' }">
-              <a-icon type="user"/>
-              <span>个人中心</span>
-            </router-link>
-          </a-menu-item>-->
-          <!-- <a-menu-item key="1">
-            <router-link :to="{ name: 'settings' }">
-              <a-icon type="setting"/>
-              <span>账户设置</span>
-            </router-link>
-          </a-menu-item>-->
-          <!-- <a-menu-item key="2" disabled>
-            <a-icon type="setting"/>
-            <span>测试</span>
-          </a-menu-item>
-          <a-menu-divider/>-->
           <a-menu-item key="3">
             <a href="javascript:;" @click="handleLogout">
               <a-icon type="logout"/>
@@ -51,16 +29,27 @@ export default {
   components: {
     NoticeIcon
   },
+  computed: {
+    avatarTxt () {
+      return this.nickname()[0]
+    },
+    iconBg () {
+      const bgArray = ['#005792', '#00ADB5', '#6A65D8', '#6195C5', '#AB8997', '#52686A']
+      const index = Math.random() * 5 // 取尾号
+      const idx = Math.floor(index * (bgArray.length / 10)) // 转化成0 - 5
+      return bgArray[idx]
+    }
+  },
   methods: {
     ...mapActions(['Logout']),
     ...mapGetters(['nickname', 'avatar']),
-    handleLogout() {
+    handleLogout () {
       const that = this
 
       this.$confirm({
         title: '提示',
         content: '真的要注销登录吗 ?',
-        onOk() {
+        onOk () {
           return that
             .Logout({})
             .then(() => {
@@ -73,9 +62,22 @@ export default {
               })
             })
         },
-        onCancel() {}
+        onCancel () {}
       })
     }
   }
 }
 </script>
+<style lang="less" scoped>
+.manager-avatar {
+    display: inline-block;
+    font-size: 12px;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 100%;
+    color: #fff;
+    text-align: center;
+    margin-right: 10px;
+}
+</style>

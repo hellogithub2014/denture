@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <p>Copyright &copy; Ecologytheme 2019. All rights reserved.</p>
+            <p>Copyright &copy; Denture 2019. All rights reserved.</p>
           </div>
           <div class="col-md-6">
             <ul class="copy_right_items d-flex justify-content-end">
@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: 'common-footer'
+  name: 'CommonFooter'
 }
 </script>
 

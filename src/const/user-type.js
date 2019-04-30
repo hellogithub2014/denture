@@ -42,6 +42,14 @@ export const roleId = {
     describe: '消费者',
     permissions: [
       {
+        permissionId: 'dashboard',
+        permissionName: '仪表盘',
+        actions,
+        actionEntitySet,
+        actionList: null,
+        dataAccess: null
+      },
+      {
         permissionId: 'exception',
         permissionName: '异常页面权限',
         actions,
@@ -76,72 +84,24 @@ export const roleId = {
         dataAccess: null
       },
       {
-        permissionId: 'result',
-        permissionName: '结果权限',
+        permissionId: 'denture',
+        permissionName: '义齿登记',
         actions,
         actionEntitySet,
         actionList: null,
         dataAccess: null
       },
       {
-        permissionId: 'profile',
-        permissionName: '详细页权限',
+        permissionId: 'denture-form',
+        permissionName: '义齿登记',
         actions,
         actionEntitySet,
         actionList: null,
         dataAccess: null
       },
       {
-        permissionId: 'table',
-        permissionName: '表格权限',
-        actions,
-        actionEntitySet,
-        actionList: null,
-        dataAccess: null
-      },
-      {
-        permissionId: 'form',
-        permissionName: '表单权限',
-        actions,
-        actionEntitySet,
-        actionList: null,
-        dataAccess: null
-      },
-      {
-        permissionId: 'order',
-        permissionName: '订单管理',
-        actions,
-        actionEntitySet,
-        actionList: null,
-        dataAccess: null
-      },
-      {
-        permissionId: 'permission',
-        permissionName: '权限管理',
-        actions,
-        actionEntitySet,
-        actionList: null,
-        dataAccess: null
-      },
-      {
-        permissionId: 'role',
-        permissionName: '角色管理',
-        actions,
-        actionEntitySet,
-        actionList: null,
-        dataAccess: null
-      },
-      {
-        permissionId: 'user',
-        permissionName: '用户管理',
-        actions,
-        actionEntitySet,
-        actionList: null,
-        dataAccess: null
-      },
-      {
-        permissionId: 'support',
-        permissionName: '超级模块',
+        permissionId: 'denture-table',
+        permissionName: '义齿列表',
         actions,
         actionEntitySet,
         actionList: null,
@@ -166,6 +126,14 @@ export const roleId = {
         dataAccess: null
       },
       {
+        permissionId: 'member',
+        permissionName: '仪表盘',
+        actions,
+        actionEntitySet,
+        actionList: null,
+        dataAccess: null
+      },
+      {
         permissionId: 'exception',
         permissionName: '异常页面权限',
         actions,
@@ -174,72 +142,32 @@ export const roleId = {
         dataAccess: null
       },
       {
-        permissionId: 'result',
-        permissionName: '结果权限',
+        permissionId: 'feedback',
+        permissionName: '反馈',
         actions,
         actionEntitySet,
         actionList: null,
         dataAccess: null
       },
       {
-        permissionId: 'profile',
-        permissionName: '详细页权限',
+        permissionId: 'denture',
+        permissionName: '反馈',
         actions,
         actionEntitySet,
         actionList: null,
         dataAccess: null
       },
       {
-        permissionId: 'table',
-        permissionName: '表格权限',
+        permissionId: 'denture-form',
+        permissionName: '义齿登记',
         actions,
         actionEntitySet,
         actionList: null,
         dataAccess: null
       },
       {
-        permissionId: 'user-table',
-        permissionName: '用户列表查询权限',
-        actions,
-        actionEntitySet,
-        actionList: null,
-        dataAccess: null
-      },
-      {
-        permissionId: 'order',
-        permissionName: '订单管理',
-        actions,
-        actionEntitySet,
-        actionList: null,
-        dataAccess: null
-      },
-      {
-        permissionId: 'permission',
-        permissionName: '权限管理',
-        actions,
-        actionEntitySet,
-        actionList: null,
-        dataAccess: null
-      },
-      {
-        permissionId: 'role',
-        permissionName: '角色管理',
-        actions,
-        actionEntitySet,
-        actionList: null,
-        dataAccess: null
-      },
-      {
-        permissionId: 'user',
-        permissionName: '用户管理',
-        actions,
-        actionEntitySet,
-        actionList: null,
-        dataAccess: null
-      },
-      {
-        permissionId: 'support',
-        permissionName: '超级模块',
+        permissionId: 'denture-table',
+        permissionName: '义齿列表',
         actions,
         actionEntitySet,
         actionList: null,

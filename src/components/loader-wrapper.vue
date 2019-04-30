@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'loader-wrapper'
+  name: 'LoaderWrapper'
 }
 </script>
 

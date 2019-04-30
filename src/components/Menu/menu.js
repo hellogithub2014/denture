@@ -36,7 +36,7 @@ export default {
   computed: {
     rootSubmenuKeys: vm => {
       const keys = []
-      vm.menu.forEach( item => keys.push( item.path ) )
+      vm.menu.forEach(item => keys.push(item.path))
       return keys
     }
   },
@@ -44,13 +44,11 @@ export default {
     this.updateMenu()
   },
   watch: {
-    collapsed ( val ) {
-      if ( val )
-      {
+    collapsed (val) {
+      if (val) {
         this.cachedOpenKeys = this.openKeys.concat()
         this.openKeys = []
-      } else
-      {
+      } else {
         this.openKeys = this.cachedOpenKeys
       }
     },
@@ -60,101 +58,91 @@ export default {
   },
   methods: {
     // select menu item
-    onOpenChange ( openKeys ) {
+    onOpenChange (openKeys) {
       // 在水平模式下时执行，并且不再执行后续
-      if ( this.mode === 'horizontal' )
-      {
+      if (this.mode === 'horizontal') {
         this.openKeys = openKeys
         return
       }
       // 非水平模式时
-      const latestOpenKey = openKeys.find( key => !this.openKeys.includes( key ) )
-      if ( !this.rootSubmenuKeys.includes( latestOpenKey ) )
-      {
+      const latestOpenKey = openKeys.find(key => !this.openKeys.includes(key))
+      if (!this.rootSubmenuKeys.includes(latestOpenKey)) {
         this.openKeys = openKeys
-      } else
-      {
+      } else {
         this.openKeys = latestOpenKey ? [ latestOpenKey ] : []
       }
     },
     updateMenu () {
       const routes = this.$route.matched.concat()
       const { hidden } = this.$route.meta
-      if ( routes.length >= 3 && hidden )
-      {
+      if (routes.length >= 3 && hidden) {
         routes.pop()
         this.selectedKeys = [ routes[ routes.length - 1 ].path ]
-      } else
-      {
+      } else {
         this.selectedKeys = [ routes.pop().path ]
       }
       const openKeys = []
-      if ( this.mode === 'inline' )
-      {
-        routes.forEach( item => {
-          openKeys.push( item.path )
-        } )
+      if (this.mode === 'inline') {
+        routes.forEach(item => {
+          openKeys.push(item.path)
+        })
       }
 
-      this.collapsed ? ( this.cachedOpenKeys = openKeys ) : ( this.openKeys = openKeys )
+      this.collapsed ? (this.cachedOpenKeys = openKeys) : (this.openKeys = openKeys)
     },
 
     // render
-    renderItem ( menu ) {
-      if ( !menu.hidden )
-      {
-        return menu.children && !menu.hideChildrenInMenu ? this.renderSubMenu( menu ) : this.renderMenuItem( menu )
+    renderItem (menu) {
+      if (!menu.hidden) {
+        return menu.children && !menu.hideChildrenInMenu ? this.renderSubMenu(menu) : this.renderMenuItem(menu)
       }
       return null
     },
-    renderMenuItem ( menu ) {
+    renderMenuItem (menu) {
       const target = menu.meta.target || null
       const tag = target && 'a' || 'router-link'
       const props = { to: { name: menu.name } }
       const attrs = { href: menu.path, target: menu.meta.target }
 
-      if ( menu.children && menu.hideChildrenInMenu )
-      {
+      if (menu.children && menu.hideChildrenInMenu) {
         // 把有子菜单的 并且 父菜单是要隐藏子菜单的
         // 都给子菜单增加一个 hidden 属性
         // 用来给刷新页面时， selectedKeys 做控制用
-        menu.children.forEach( item => {
-          item.meta = Object.assign( item.meta, { hidden: true } )
-        } )
+        menu.children.forEach(item => {
+          item.meta = Object.assign(item.meta, { hidden: true })
+        })
       }
 
       return (
         <Item {...{ key: menu.path }}>
           <tag {...{ props, attrs }}>
-            {this.renderIcon( menu.meta.icon )}
+            {this.renderIcon(menu.meta.icon)}
             <span>{menu.meta.title}</span>
           </tag>
         </Item>
       )
     },
-    renderSubMenu ( menu ) {
+    renderSubMenu (menu) {
       const itemArr = []
-      if ( !menu.hideChildrenInMenu )
-      {
-        menu.children.forEach( item => itemArr.push( this.renderItem( item ) ) )
+      if (!menu.hideChildrenInMenu) {
+        menu.children.forEach(item => itemArr.push(this.renderItem(item)))
       }
       return (
         <SubMenu {...{ key: menu.path }}>
           <span slot="title">
-            {this.renderIcon( menu.meta.icon )}
+            {this.renderIcon(menu.meta.icon)}
             <span>{menu.meta.title}</span>
           </span>
           {itemArr}
         </SubMenu>
       )
     },
-    renderIcon ( icon ) {
-      if ( icon === 'none' || icon === undefined )
-      {
+    renderIcon (icon) {
+      if (icon === 'none' || icon === undefined) {
         return null
       }
       const props = {}
-      typeof ( icon ) === 'object' ? props.component = icon : props.type = icon
+      typeof (icon) === 'object' ? props.component = icon : props.type = icon
       return (
         <Icon {... { props }} />
       )
@@ -171,18 +159,17 @@ export default {
     const on = {
       select: obj => {
         this.selectedKeys = obj.selectedKeys
-        this.$emit( 'select', obj )
+        this.$emit('select', obj)
       },
       openChange: this.onOpenChange
     }
 
-    const menuTree = menu.map( item => {
-      if ( item.hidden )
-      {
+    const menuTree = menu.map(item => {
+      if (item.hidden) {
         return null
       }
-      return this.renderItem( item )
-    } )
+      return this.renderItem(item)
+    })
     // {...{ props, on: on }}
     return (
       <Menu vModel={this.selectedKeys} {...{ props, on: on }}>

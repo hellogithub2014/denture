@@ -13,61 +13,51 @@ export const asyncRouterMap = [
     redirect: `${ASYNC_PATH_PREFIX}/dashboard/workplace`,
     children: [
       {
-        path: `${ASYNC_PATH_PREFIX}/dashboard`,
+        path: `${ASYNC_PATH_PREFIX}/dashboard/workplace`,
         name: 'dashboard',
-        redirect: `${ASYNC_PATH_PREFIX}/dashboard/workplace`,
-        component: RouteView,
-        hideChildrenInMenu: false,
-        meta: { title: '仪表盘', keepAlive: true, icon: bxAnaalyse, permission: ['dashboard'] },
-        children: [
-          {
-            path: `${ASYNC_PATH_PREFIX}/dashboard/workplace`,
-            name: 'Workplace',
-            component: () => import('@/views/dashboard/Workplace'),
-            meta: { title: '工作台', keepAlive: true, permission: ['dashboard'] }
-          }
-        ]
+        // redirect: `${ASYNC_PATH_PREFIX}/dashboard/workplace`,
+        component: () => import('@/views/dashboard/Workplace'),
+        hideChildrenInMenu: true,
+        meta: { title: '个人中心', keepAlive: true, icon: bxAnaalyse, permission: ['dashboard'] }
       },
-
-      // forms
+      // 用户列表
       {
-        path: `${ASYNC_PATH_PREFIX}/form`,
-        redirect: `${ASYNC_PATH_PREFIX}/form/base-form`,
+        path: `${ASYNC_PATH_PREFIX}/user`,
+        name: 'UserTableList',
+        hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
+        component: () => import('@/views/list/UserList'),
+        meta: { title: '用户列表', keepAlive: true, icon: 'user', permission: ['member'] }
+      },
+      // 义齿
+      {
+        path: `${ASYNC_PATH_PREFIX}/denture`,
+        name: 'list',
         component: PageView,
-        meta: { title: '表单页', icon: 'form', permission: ['form'] },
+        redirect: `${ASYNC_PATH_PREFIX}/denture/table-list`,
+        meta: { title: '义齿信息', icon: 'table', permission: ['denture'] },
         children: [
           {
             path: `${ASYNC_PATH_PREFIX}/form/base-form`,
             name: 'BaseForm',
             component: () => import('@/views/form/BasicForm'),
-            meta: { title: '义齿信息登记', keepAlive: true, permission: ['form'] }
-          }
-        ]
-      },
-
-      // list
-      {
-        path: `${ASYNC_PATH_PREFIX}/list`,
-        name: 'list',
-        component: PageView,
-        redirect: `${ASYNC_PATH_PREFIX}/list/table-list`,
-        meta: { title: '列表页', icon: 'table', permission: ['table'] },
-        children: [
+            meta: { title: '义齿信息登记', keepAlive: true, permission: ['denture-form'] }
+          },
           {
             path: `${ASYNC_PATH_PREFIX}/list/table-list/:pageNo([1-9]\\d*)?`,
             name: 'TableListWrapper',
             hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
             component: () => import('@/views/list/TableList'),
-            meta: { title: '义齿查询列表', keepAlive: true, permission: ['table'] }
-          },
-          {
-            path: `${ASYNC_PATH_PREFIX}/list/user-table-list`,
-            name: 'UserTableList',
-            hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
-            component: () => import('@/views/list/UserList'),
-            meta: { title: '用户列表', keepAlive: true, permission: ['user-table'] }
+            meta: { title: '义齿查询列表', keepAlive: true, permission: ['denture-table'] }
           }
         ]
+      },
+      // 反馈
+      {
+        path: `${ASYNC_PATH_PREFIX}/feedback`,
+        name: 'FeedBackTableList',
+        hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
+        component: () => import('@/views/list/FeedBackList'),
+        meta: { title: '反馈列表', keepAlive: true, icon: 'wechat', permission: ['feedback'] }
       }
     ]
   },

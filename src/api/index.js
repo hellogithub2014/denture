@@ -12,7 +12,7 @@ const api = {
   Login: `/op/login`,
   Register: `/op/register`,
   Logout: '/op/logout',
-  sendEmail: '/op/email'
+  sendEmail: '/rs/feedback'
 }
 
 export default api
